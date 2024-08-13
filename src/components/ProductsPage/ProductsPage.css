@@ -1,0 +1,18 @@
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  min-height: 90vh;
+  padding: 5%;
+  background: var(--light-blue);
+}
+
+.products-data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}

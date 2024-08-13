@@ -1,14 +1,11 @@
-.navbar {
+.card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 5%;
-  height: 10vh;
-  padding: 0% 10% 0% 10%;
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
   background: var(--mid-blue);
-}
-
-.navbar h1 {
-  margin-right: auto;
 }

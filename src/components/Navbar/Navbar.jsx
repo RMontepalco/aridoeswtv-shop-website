@@ -6,6 +6,7 @@ export default function Navbar() {
     <nav className="navbar">
       <h1>aridoeswtv</h1>
       <Link to="/">Home</Link>
+      <Link to="/products">Products</Link>
       <Link to="/contact">Contact</Link>
     </nav>
   )
