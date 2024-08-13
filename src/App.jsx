@@ -8,7 +8,7 @@ import './App.css'
 export default function App() {
   return (
     <div className="app">
-    <Navbar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/products" element={<ProductsPage />}/>
