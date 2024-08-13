@@ -1,4 +1,33 @@
 * {
   margin: 0;
   padding: 0;
+
+  /* Font "Inter" from https://fonts.google.com/ */
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+:root {
+  --dark-blue: #477081;
+  --mid-blue: #D6E4FC;
+  --light-blue: #F0F3FC;
+}
+
+h1 {
+  color: var(--dark-blue);
+}
+
+p {
+  color: var(--dark-blue);
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-blue);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
 }
