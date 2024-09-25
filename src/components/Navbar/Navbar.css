@@ -12,3 +12,35 @@
 .navbar h1 {
   margin-right: auto;
 }
+
+.chevron {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url(/chevron-compact-down.svg);
+}
+
+.products-dropdown-content {
+  display: none;
+  flex-direction: column;
+  row-gap: 10px;
+  position: absolute;
+  translate: -10px 1px;
+  text-align: left;
+  border-radius: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  background: var(--mid-blue);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+/*
+  TO DO: Open dropdown menu on click/tap of products button for mobile
+  TO DO: Open products page while dropdown menu is open for mobile
+*/
+.products-dropdown-menu:hover .products-dropdown-content {
+  display: flex;
+}
+
+.products-dropdown-menu:hover .chevron {
+  background-image: url(/chevron-compact-up.svg);
+}
