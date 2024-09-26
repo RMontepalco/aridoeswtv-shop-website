@@ -22,12 +22,12 @@ export default function Navbar() {
         </Link>
 
         <div className="products-dropdown-content">
-          <Link to="/products" state={{product: 'keychains', category: 'Keychains'}}>Keychains</Link>
           <Link to="/products" state={{product: 'hairclips', category: 'Hairclips'}}>Hairclips</Link>
           <Link to="/products" state={{product: 'jewlery', category: 'Jewlery'}}>Jewlery</Link>
+          <Link to="/products" state={{product: 'keychains', category: 'Keychains'}}>Keychains</Link>
           <Link to="/products" state={{product: 'prints', category: 'Prints'}}>Prints</Link>
           <Link to="/products" state={{product: 'stickers', category: 'Stickers'}}>Stickers</Link>
-          <Link to="/products" state={{product: 'misc.', category: 'Miscellaneous'}}>Misc.</Link>
+          <Link to="/products" state={{product: 'misc', category: 'Miscellaneous'}}>Misc.</Link>
         </div>
       </div>
 
