@@ -53,7 +53,9 @@ export default function ProductsPage() {
     return <Card
       key={product.id}
       name={product.name}
-      description={product.description} 
+      description={product.description}
+      image={product.image}
+      price={product.price}
     />
   })
 

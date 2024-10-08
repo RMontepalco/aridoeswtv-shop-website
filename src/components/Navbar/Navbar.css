@@ -13,6 +13,10 @@
   margin-right: auto;
 }
 
+.products-button {
+  display: flex;
+}
+
 .chevron {
   display: inline-block;
   width: 16px;

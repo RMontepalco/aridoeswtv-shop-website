@@ -3,10 +3,14 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 30px;
   min-height: 90vh;
-  padding: 5%;
+  padding: 0% 10% 0% 10%;
   background: var(--light-blue);
+}
+
+.products h1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .products-data {
@@ -14,5 +18,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
+  max-width: 830px;
+  padding:  0% 10% 0% 10%;
 }
