@@ -13,6 +13,9 @@
   margin-bottom: 30px;
 }
 
+/*
+  TO DO: Make last column align left
+*/
 .products-data {
   display: flex;
   flex-wrap: wrap;

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import close from '/x.svg'
 import './Card.css'
 
 export default function Card(props) {
@@ -20,17 +21,15 @@ export default function Card(props) {
           <p>{props.price}</p>
         </div>
       </div>
-      <div className="card-overlay-background" onClick={toggleCardOverlay} style={styles}>
+      <div className="card-overlay-background" style={styles}>
         <div className="card-overlay">
-        {/*
-          TO DO: add "x" button to close card overlay
-        */}
           <img className="card-overlay-image" src={props.image} alt="Product Image"/>
           <div className="card-overlay-info">
             <p>{props.name}</p>
             <p>{props.price}</p>
             <p style={{marginTop: "30px"}}>{props.description}</p>
           </div>
+          <img className="close-button" src={close} alt="Close Button" onClick={toggleCardOverlay} />
         </div>
       </div>
     </div>
