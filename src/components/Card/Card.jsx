@@ -15,7 +15,8 @@ export default function Card(props) {
   return (
     <div>
       <div className="card">
-        <img className="card-image" src={props.image} alt="Product Image" onClick={toggleCardOverlay} tabIndex="0"/>
+        <img className="card-image" src={props.image} alt="Product Image"
+          onClick={toggleCardOverlay} tabIndex="0"/>
         <div className="card-info">
           <p>{props.name}</p>
           <p>{props.price}</p>
@@ -25,11 +26,12 @@ export default function Card(props) {
         <div className="card-overlay">
           <img className="card-overlay-image" src={props.image} alt="Product Image"/>
           <div className="card-overlay-info">
-            <p>{props.name}</p>
-            <p>{props.price}</p>
-            <p style={{marginTop: "30px"}}>{props.description}</p>
+            <h2>{props.name}</h2>
+            <h3>{props.price}</h3>
+            <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra phasellus quis vitae ullamcorper adipiscing libero augue.</p>
           </div>
-          <img className="close-button" src={close} alt="Close Button" onClick={toggleCardOverlay} />
+          <img className="close-button" src={close} alt="Close Button"
+                  onClick={toggleCardOverlay} tabIndex="0"/>
         </div>
       </div>
     </div>
