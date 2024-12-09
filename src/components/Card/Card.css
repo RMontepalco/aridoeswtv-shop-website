@@ -1,5 +1,7 @@
 /*
   TO DO: Refactor code
+  TO DO: Lock overlay to user's screen position and prevent scrolling (might need to mess with App or ProductsPage)
+  TO DO: Allow user to click anywhere outside of the overlay to close it
 */
 .card {
   display: flex;
@@ -64,6 +66,7 @@
   justify-content: left;
   align-items: left;
   text-align: left;
+  row-gap: 10px;
   box-sizing: border-box;
   width: 310px;
   height: 350px;
