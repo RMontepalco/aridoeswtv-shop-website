@@ -1,7 +1,31 @@
 .contact {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  row-gap: 30px;
   min-height: 90vh;
+  padding: 0% 10% 0% 10%;
   background: var(--light-blue);
+}
+
+.contact h1 {
+  margin-top: 30px;
+  width: 80%;
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 10px;
+  background-color: var(--mid-blue);
+}
+
+.order-method {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  row-gap: 10px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  width: 100%;
+  background-color: var(--mid-blue);
 }
