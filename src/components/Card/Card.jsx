@@ -22,16 +22,17 @@ export default function Card(props) {
           <p>{props.price}</p>
         </div>
       </div>
-      <div className="card-overlay-background" style={styles}>
+      <div className="card-overlay-container" style={styles}>
+        <div className="card-overlay-background" onClick={toggleCardOverlay}></div>
         <div className="card-overlay">
           <img className="card-overlay-image" src={props.image} alt="Product Image"/>
           <div className="card-overlay-info">
             <h2>{props.name}</h2>
             <h3>{props.price}</h3>
-            <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra phasellus quis vitae ullamcorper adipiscing libero augue.</p>
+            <p>{props.description}</p>
           </div>
-          <img className="close-button" src={close} alt="Close Button"
-                  onClick={toggleCardOverlay} tabIndex="0"/>
+          <img className="close-button" src={close} alt="Close Button" 
+            onClick={toggleCardOverlay} tabIndex="0"/>
         </div>
       </div>
     </div>
