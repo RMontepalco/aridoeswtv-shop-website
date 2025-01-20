@@ -1,3 +1,9 @@
+:root {
+  --dark-blue: #477081;
+  --mid-blue: #D6E4FC;
+  --light-blue: #F0F3FC;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +14,8 @@
   font-style: normal;
 }
 
-:root {
-  --dark-blue: #477081;
-  --mid-blue: #D6E4FC;
-  --light-blue: #F0F3FC;
+body {
+  background-color: var(--light-blue);
 }
 
 h1 {
