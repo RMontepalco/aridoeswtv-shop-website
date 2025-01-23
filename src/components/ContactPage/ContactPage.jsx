@@ -1,44 +1,45 @@
+import blog from '/blog.png'
+import contactMe from '/contact-me.gif'
+import girlSit from '/girl-sit.png'
+import questions from '/questions.gif'
+import instagram from '/instagram.png'
+import koFi from '/ko-fi.png'
+
 import './ContactPage.css'
 
 export default function ContactPage() {
   return (
     <div className="contact">
-      <h1>ʚ Payment Methods ɞ</h1>
-      <div style={{display: "flex", columnGap: "30px", width: "100%"}}>
-        <div className="order-method">
-          <h2>Local Orders</h2>
-          <p>
-            Lorem ipsum odor amet, consectetuer adipiscing elit.
-            Rutrum dolor facilisis vulputate parturient in lacus cras at? 
-            Cubilia per mi donec ridiculus morbi platea urna amet. 
-            Eleifend nunc arcu euismod sit porta ligula ligula nascetur. 
-            Torquent class magnis sem commodo luctus eu cubilia mauris.
-          </p>
-        </div>
-        <div className="order-method">
-          <h2>International Orders</h2>
-          <p>
-            Lorem ipsum odor amet, consectetuer adipiscing elit.
-            Rutrum dolor facilisis vulputate parturient in lacus cras at? 
-            Cubilia per mi donec ridiculus morbi platea urna amet. 
-            Eleifend nunc arcu euismod sit porta ligula ligula nascetur. 
-            Torquent class magnis sem commodo luctus eu cubilia mauris.
-          </p>
-        </div>
+      <img className="girl-sit" src={girlSit} alt="girl-sit"/>
+        <img className="contact-header" src={contactMe} alt="contact-me"/>
+      <div className="contact-links">
+        <a href="https://www.instagram.com/aridoeswtv">
+          <img src={instagram} alt="instagram"/>
+          <p>instagram</p>
+        </a>
+        {/*
+          TO DO: Add Ko-fi Link
+        */}
+        <a href="">
+          <img src={koFi} alt="ko-fi"/>
+          <p>ko-fi</p>
+        </a>
+        <a href="https://aridoeswtv.blogspot.com">
+          <img src={blog} alt="blog"/>
+          <p>my blog!</p>
+        </a>
       </div>
-      <div className="order-method">
-        <h2>How to Order!</h2>
+      <div className="questions">
+        <img className="contact-header" src={questions} alt="cquestions"/>
         <p>
           Lorem ipsum odor amet, consectetuer adipiscing elit.
-          Rutrum dolor facilisis vulputate parturient in lacus cras at? 
-          Cubilia per mi donec ridiculus morbi platea urna amet. 
-          Eleifend nunc arcu euismod sit porta ligula ligula nascetur. 
-          Torquent class magnis sem commodo luctus eu cubilia mauris. 
-          Semper praesent consectetur facilisi lorem mi ipsum commodo. 
-          Blandit vestibulum mollis donec finibus ornare curae. 
-          Convallis at adipiscing euismod gravida bibendum class tincidunt aenean? 
-          Feugiat taciti quam eleifend porta pharetra. 
-          Senectus odio nullam dapibus mi orci eleifend feugiat.
+          Bibendum libero nec inceptos leo ligula semper aenean.
+          Rhoncus gravida nullam tempor, conubia fringilla per non.
+          Luctus metus facilisis pellentesque mi metus curabitur ut.
+          Sodales ipsum dui, integer tortor ultrices dolor torquent. 
+          uctus ultricies eu enim nisi arcu massa commodo.
+          Nulla duis ex luctus enim ornare lacus.
+          Mus curabitur duis urna habitant aenean tempor a mi.
         </p>
       </div>
     </div>

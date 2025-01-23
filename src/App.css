@@ -2,44 +2,66 @@
   --dark-blue: #477081;
   --mid-blue: #D6E4FC;
   --light-blue: #F0F3FC;
+  --blue: #003172;
+  --purple: #4D51A5;
+  --light-gray: #D9D9D9;
+}
+
+/* Font "Papyrus" from https://befonts.com/papyrus-font.html */
+@font-face {
+  font-family: papyrus;
+  src: url(/papyrus.ttf);
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 * {
   margin: 0;
   padding: 0;
 
-  /* Font "Inter" from https://fonts.google.com/ */
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
+  /* Font "Silkscreen" from https://fonts.google.com/ */
+  font-family: "Silkscreen", serif;
+  font-weight: 400;
   font-style: normal;
 }
 
 body {
-  background-color: var(--light-blue);
+  background-color: black;
 }
 
-h1 {
-  color: var(--dark-blue);
-}
-
-h2 {
-  color: var(--dark-blue);
-}
-
-h3 {
-  color: var(--dark-blue);
-}
-
-p {
-  color: var(--dark-blue);
-}
-
-a {
+h1, h2, h3, p, a {
   text-decoration: none;
-  color: var(--dark-blue);
+  color: white;
 }
 
 .app {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  row-gap: 25px;
 }
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  row-gap: 10px;
+  position: absolute;
+  transform: translateY(225px);
+  left: 83%;
+}
+
+.sidebar img {
+  width: 200px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.footer img {
+  width: 32%;
+ }

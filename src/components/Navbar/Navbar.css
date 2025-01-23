@@ -1,50 +1,52 @@
 .navbar {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 5%;
-  height: 10vh;
-  padding: 0% 10% 0% 10%;
-  background: var(--mid-blue);
-}
-
-.navbar h1 {
-  margin-right: auto;
-}
-
-.products-button {
-  display: flex;
-}
-
-.chevron {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  background-image: url(/chevron-compact-down.svg);
-}
-
-.products-dropdown-content {
-  display: none;
-  flex-direction: column;
   row-gap: 10px;
-  position: absolute;
-  translate: -10px 1px;
-  text-align: left;
-  border-radius: 10px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  background: var(--mid-blue);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  height: 200px;
+  width: 60%;
 }
 
-/*
-  TO DO: Open dropdown menu on click/tap of products button for mobile
-  TO DO: Open products page while dropdown menu is open for mobile
-*/
-.products-dropdown-menu:hover .products-dropdown-content {
+.banner {
   display: flex;
+  justify-content: right;
+  align-items: end;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 165px;
+  background-image: url(/galaxy-background.jpeg);
 }
 
-.products-dropdown-menu:hover .chevron {
-  background-image: url(/chevron-compact-up.svg);
+.banner h1 {
+  /* Font "Papyrus" from https://befonts.com/papyrus-font.html */
+  font-family: "papyrus";
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+.navbuttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 25px;
+}
+
+.navbuttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid var(--purple);
+  width: 25%;
+  color: black;
+  /* TO DO: Replace shadow with outline */
+  text-shadow: 1px 1px 2px var(--purple);
+  background-color: var(--light-gray);
+  /* Font "Inter" from https://fonts.google.com/ */
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }

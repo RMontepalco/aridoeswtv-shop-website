@@ -9,24 +9,26 @@
   text-align: center;
   max-width: 250px;
   row-gap: 5px;
-  border-radius: 30px;
+  box-sizing: border-box;
+  border: 1px solid var(--purple);
+  border-radius: 15px;
+  padding: 10px 10px 10px 10px;
+  background-color: black;
+  cursor: pointer;
 }
 
 .card-image {
   object-fit: cover;
   aspect-ratio: 1/1;
   width: 100%;
-  height: 100%;
-  border-radius: 30px;
-  cursor: pointer;
+  border-radius: 10px;
 }
 
 .card-info {
-  display: flex;  
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  width: 95%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
 }
 
 .card-overlay-container {
@@ -53,8 +55,10 @@
   width: 800px;
   height: 500px;
   position: fixed;
-  border-radius: 30px;
-  background-color: var(--mid-blue);
+  box-sizing: border-box;
+  border: 1px solid var(--purple);
+  border-radius: 15px;
+  background-color: black;
 }
 
 .card-overlay-image {
@@ -63,7 +67,7 @@
   width: 350px;
   height: 350px;
   margin: 75px 10px 75px 40px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .card-overlay-info {

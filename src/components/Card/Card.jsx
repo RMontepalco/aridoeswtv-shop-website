@@ -14,9 +14,8 @@ export default function Card(props) {
 
   return (
     <div>
-      <div className="card">
-        <img className="card-image" src={props.image} alt="Product Image"
-          onClick={toggleCardOverlay} tabIndex="0"/>
+      <div className="card" onClick={toggleCardOverlay} tabIndex="0">
+        <img className="card-image" src={props.image} alt="Product Image"/>
         <div className="card-info">
           <p>{props.name}</p>
           <p>{props.price}</p>

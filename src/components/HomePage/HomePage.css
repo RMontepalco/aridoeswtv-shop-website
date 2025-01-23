@@ -1,39 +1,78 @@
-/*
-  TO DO: Maybe combine css with ProductsPage
-*/
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   row-gap: 30px;
-  min-height: 90vh;
-  padding: 0% 10% 0% 10%;
-  background: var(--light-blue);
+  width: 60%;
+  background: url(/galaxy-background.jpeg);
 }
 
-.header {
-  margin-top: 30px;
-}
-
-.headline {
+.headlines {
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
-  text-align: left;
-  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
   padding: 30px;
-  background-color: var(--mid-blue);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.headlines p, u {
+  /* Font "Pres Start 2P" from https://fonts.google.com/ */
+  font-family: "Press Start 2P", serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 60%;
+  height: 170px;
+  position: relative;
+  right: 20%;
+  padding: 50px;
+  /* TO DO: light blue border around ellipse */
+  clip-path: ellipse(50% 50% at 50% 50%);
+  transform: rotate(355deg);
+  background-color: var(--blue);
+}
+
+.announcement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  row-gap: 10px;
+  width: 60%;
+  height: 170px;
+  position: relative;
+  left: 20%;
+  padding: 50px;
+  /* TO DO: light blue border around ellipse */
+  clip-path: ellipse(50% 50% at 50% 50%);
+  transform: rotate(5deg);
+  background-color: var(--blue);
+}
+
+.hamster-ufo {
+  position: absolute;
+  right: 17%;
+  transform: translateY(-15px);
+  aspect-ratio: 1.05/1;
+  width: 200px;
 }
 
 .new-products {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  row-gap: 30px;
-  padding: 0% 10% 0% 10%;
-  background: var(--light-blue);
+  padding-bottom: 80px;
 }
 
 .new-products-data {
@@ -42,5 +81,11 @@
   justify-content: center;
   align-items: center;
   gap: 40px;
-  max-width: 830px;
+}
+
+.girl-sit {
+  aspect-ratio: 0.57/1;
+  position: absolute;
+  left: 10%;
+  top: 450px;
 }

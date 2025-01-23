@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { collection, getDocs } from "firebase/firestore";
+
 import db from '../../firebase.js'
 import Card from '../Card/Card'
+
+import hamsterUfo from '/hamster-ufo.png'
+import girlSit from '/girl-sit.png'
+
 import './HomePage.css'
 
 export default function HomePage() {
-
-  /*
-    TO DO: Maybe combine jsx with ProductsPage
-  */
-
   // Store array of products
   const [products, setProducts] = useState([])
 
@@ -40,24 +40,24 @@ export default function HomePage() {
 
   return (
     <div className="home">
-      <h1 className="header">Welcome to my shop!</h1>
-      <div className="headline">
-        <h2>Hi, I'm Arielle!</h2>
-        <p>
-          Lorem ipsum odor amet, consectetuer adipiscing elit.
-          Rutrum dolor facilisis vulputate parturient in lacus cras at? 
-          Cubilia per mi donec ridiculus morbi platea urna amet. 
-          Eleifend nunc arcu euismod sit porta ligula ligula nascetur. 
-          Torquent class magnis sem commodo luctus eu cubilia mauris. 
-          Semper praesent consectetur facilisi lorem mi ipsum commodo. 
-          Blandit vestibulum mollis donec finibus ornare curae. 
-          Convallis at adipiscing euismod gravida bibendum class tincidunt aenean? 
-          Feugiat taciti quam eleifend porta pharetra. 
-          Senectus odio nullam dapibus mi orci eleifend feugiat.
-        </p>
+      <img className="girl-sit" src={girlSit} alt="girl-sit"/>
+      <div className="headlines">
+        <div className="intro">
+          <p>
+            hello! my name is arielle and i make silly art that my brain comes up with :)
+          </p>
+        </div>
+        <div className="announcement">
+          <p>
+            <u>upcoming events!</u>
+          </p>
+          <p>
+            ongoing giveaway on my insta :)
+          </p>
+        </div>
+        <img className="hamster-ufo" src={hamsterUfo} alt="hamster-ufo"/>
       </div>
       <div className="new-products">
-        <h1>New Arrivals</h1>
         <div className="new-products-data">
           {productsData}
         </div>

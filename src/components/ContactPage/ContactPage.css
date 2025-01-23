@@ -4,28 +4,53 @@
   align-items: center;
   text-align: center;
   row-gap: 30px;
-  min-height: 90vh;
-  padding: 0% 10% 0% 10%;
-  background: var(--light-blue);
+  width: 60%;
+  background: url(/galaxy-background.jpeg);
+}
+.contact p {
+  /* Font "Pres Start 2P" from https://fonts.google.com/ */
+  font-family: "Press Start 2P", serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
 }
 
-.contact h1 {
-  margin-top: 30px;
-  width: 80%;
-  box-sizing: border-box;
-  border-radius: 25px;
-  padding: 10px;
-  background-color: var(--mid-blue);
+.contact-header {
+  width: 50%;
 }
 
-.order-method {
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  column-gap: 90px;
+  row-gap: 30px;
+  width: 100%;
+}
+
+.contact-links a {
   display: flex;
   flex-direction: column;
-  text-align: left;
-  row-gap: 10px;
-  padding: 30px;
-  box-sizing: border-box;
-  border-radius: 30px;
+  aspect-ratio: 1.11/1;
+  width: 200px;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
   width: 100%;
-  background-color: var(--mid-blue);
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.girl-sit {
+  aspect-ratio: 0.57/1;
+  position: absolute;
+  left: 10%;
+  top: 450px;
 }
