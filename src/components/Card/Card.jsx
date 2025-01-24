@@ -29,6 +29,11 @@ export default function Card(props) {
             <h2>{props.name}</h2>
             <h3>{props.price}</h3>
             <p>{props.description}</p>
+            <stripe-buy-button
+              buy-button-id={props.buyId}
+              publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
+            >
+            </stripe-buy-button>
           </div>
           <img className="close-button" src={close} alt="Close Button" 
             onClick={toggleCardOverlay} tabIndex="0"/>

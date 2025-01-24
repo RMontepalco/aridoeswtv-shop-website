@@ -50,6 +50,7 @@ export default function ProductsPage() {
   const productsData = products.map(product => {
     return <Card
       key={product.id}
+      buyId={product.buyId}
       name={product.name}
       description={product.description}
       image={product.image}

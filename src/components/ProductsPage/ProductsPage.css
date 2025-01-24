@@ -28,6 +28,7 @@
 .categories button {
   all: unset;
   color: white;
+  cursor: pointer;
 }
 
 /*
@@ -47,6 +48,7 @@
 .products-data button {
   all: unset;
   color: white;
+  cursor: pointer;
 }
 
 .products-list {
