@@ -76,11 +76,47 @@
   justify-content: left;
   align-items: left;
   text-align: left;
-  row-gap: 10px;
+  row-gap: 20px;
   box-sizing: border-box;
   width: 310px;
   height: 350px;
   margin: 75px 40px 75px 10px;
+}
+
+.add-or-buy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 5px;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100px;
+  height: 25px;
+  border: 1px solid var(--purple);
+  background-color: var(--light-gray);
+  cursor: pointer;
+}
+
+.add p {
+  color: black;
+  /* TO DO: Replace shadow with outline */
+  text-shadow: 1px 1px 2px var(--purple);
+  /* Font "Inter" from https://fonts.google.com/ */
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.stripe {
+  width: 150px;
+  height: 50px;
 }
 
 .close-button {

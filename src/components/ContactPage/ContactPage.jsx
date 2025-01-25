@@ -17,10 +17,7 @@ export default function ContactPage() {
           <img src={instagram} alt="instagram"/>
           <p>instagram</p>
         </a>
-        {/*
-          TO DO: Add Ko-fi Link
-        */}
-        <a href="">
+        <a href="https://ko-fi.com/aridoeswtv">
           <img src={koFi} alt="ko-fi"/>
           <p>ko-fi</p>
         </a>
