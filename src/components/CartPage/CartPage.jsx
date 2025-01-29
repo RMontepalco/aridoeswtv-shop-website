@@ -21,6 +21,49 @@ export default function CartPage() {
     setTotal(curr)
   }, [cart])
 
+  function checkOut() {
+    // Check if cart is empty
+    if (cart.length === 0) {
+      console.log("empty cart")
+      return
+    }
+
+    // Parse cart to stripe format
+    const lineItems = cart.map(item => {
+        return {
+          price: item.priceId,
+          quantity: item.quantity
+        }
+    })
+
+    // Initiate POST request to the server
+    fetch("http://localhost:3000/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      // Send cart items to Stripe
+      body: JSON.stringify({items: lineItems}),
+    })
+
+    // Determine if response is ok
+    .then(res => {
+      if (res.ok) return res.json()
+      return res.json().then(e => Promise.reject(e))
+    })
+
+    // Redirect customer to success URL
+    .then(({ url }) => {
+      window.location = url
+    })
+
+    // Catch and display error
+    .catch(e => {
+      console.error(e.error)
+    })
+  }
+
   // Map and render items
   const cartData = cart.map(item => {
     return <div className="cart-item">
@@ -42,6 +85,7 @@ export default function CartPage() {
         {cartData}
       </div>
       <p>total: ${total} SGD</p>
+      <button onClick={checkOut}>Check Out</button>
     </div>
   )
 }

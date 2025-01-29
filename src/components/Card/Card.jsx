@@ -22,10 +22,12 @@ export default function Card(props) {
   function addToCart() {
     setCart(prevCart => [...cart, {
       buyId: props.buyId,
+      priceId: props.priceId,
       name: props.name,
       price: props.price,
       description: props.description,
-      image: props.image
+      image: props.image,
+      quantity: 1
     }])
   }
 

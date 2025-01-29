@@ -14,6 +14,9 @@ export default function Navbar() {
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
         <Link to="/contact">Contact</Link>
+        {
+          // TO DO: Display cart size next to cart text
+        }
         <Link to="/cart">Cart</Link>
       </div>
 
