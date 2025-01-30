@@ -8,12 +8,8 @@ export default function CartPage() {
   const [cart, setCart] = useState(cartLocalStorage)
   const [total, setTotal] = useState(0)
 
-  // Add items to cart
-  function addToCart() {
-    setCart(prevCart => [...cart, {name: "Patchwork Cat"}])
-  }
-
-  // Store cart to localStorage
+  // Store cart to localStorage and calculate cart total
+  // TO DO: Round cart total to two decimal places
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart))
     let curr = 0
@@ -23,43 +19,34 @@ export default function CartPage() {
 
   function checkOut() {
     // Check if cart is empty
-    console.log(import.meta.env.VITE_PORT || 3000)
+    // TO DO: Display empty cart message to customer
     if (cart.length === 0) {
-      console.log("empty cart")
       return
     }
 
-    // Parse cart to stripe format
+    // Map and parse cart for POST request
     const lineItems = cart.map(item => {
-        return {
-          price: item.priceId,
-          quantity: item.quantity
-        }
+      return {
+        price: item.priceId,
+        quantity: item.quantity
+      }
     })
 
     // Initiate POST request to the server
-    fetch("/create-checkout-session", {
+    fetch("https://aridoeswtv-shop-website.onrender.com/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-
-      // Send cart items to Stripe
       body: JSON.stringify({items: lineItems}),
     })
-
-    // Determine if response is ok
     .then(res => {
       if (res.ok) return res.json()
       return res.json().then(e => Promise.reject(e))
     })
-
-    // Redirect customer to success URL
     .then(({ url }) => {
       window.location = url
     })
-
-    // Catch and display error
     .catch(e => {
       console.error(e.error)
     })
