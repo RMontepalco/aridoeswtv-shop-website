@@ -8,6 +8,9 @@ const app = express()
 app.use(express.json())
 app.use(cors());
 
+// Set port number
+const port = process.env.PORT || 3000
+
 // Setup Stripe
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
@@ -27,8 +30,8 @@ app.post("/create-checkout-session", async (req, res) => {
         }
       }),
       mode: "payment",
-      success_url: `http://localhost:5173`,
-      cancel_url: `http://localhost:5173`,
+      success_url: `https://aridoeswtv.web.app/`,
+      cancel_url: `https://aridoeswtv.web.app//cart`,
     })
 
     res.json({ url: session.url })
@@ -38,5 +41,7 @@ app.post("/create-checkout-session", async (req, res) => {
   }
 })
 
-// Start up server on port 3000
-app.listen(3000)
+// Start up server on specified port
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
+})

@@ -23,6 +23,7 @@ export default function CartPage() {
 
   function checkOut() {
     // Check if cart is empty
+    console.log(import.meta.env.VITE_PORT || 3000)
     if (cart.length === 0) {
       console.log("empty cart")
       return
@@ -37,7 +38,7 @@ export default function CartPage() {
     })
 
     // Initiate POST request to the server
-    fetch("http://localhost:3000/create-checkout-session", {
+    fetch("/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
