@@ -1,0 +1,31 @@
+.cart-item {
+  display: flex;
+  text-align: left;
+  column-gap: 20px;
+}
+
+.cart-image {
+  aspect-ratio: 1/1;
+  width: 75px;
+}
+
+.cart-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+.cart-price {
+  display: flex;
+  margin-left: auto;
+}
+
+.cart-remove {
+  width: 30px;
+  height: 30px;
+  margin: 10px 10px 0px 0px;
+  box-sizing: border-box;
+  border: 1px solid var(--purple);
+  cursor: pointer;
+  background: var(--light-gray);
+}

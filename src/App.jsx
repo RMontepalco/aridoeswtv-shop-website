@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar/Navbar'
@@ -19,6 +20,19 @@ import welcome from '/welcome.gif'
 import './App.css'
 
 export default function App() {
+  // Initiate or load cart items from localStorage
+  const cartLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]")
+  const [cart, setCart] = useState(cartLocalStorage)
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
+
+  // Remove an item from cart
+  function removeFromCart(index) {
+    setCart(prevCart => prevCart.filter((item, i) => i !== index))
+  }
+
   return (
     <div className="app">
       <Navbar />
@@ -26,7 +40,11 @@ export default function App() {
         <Route path="/" element={<HomePage />}/>
         <Route path="/products" element={<ProductsPage />}/>
         <Route path="/contact" element={<ContactPage />}/>
-        <Route path="/cart" element={<CartPage />}/>
+        <Route path="/cart" element={<CartPage
+          cartLocalStorage={cartLocalStorage}
+          cart={cart}
+          removeFromCart={removeFromCart}
+        />}/>
       </Routes>
       <div className="sidebar">
         <img src={drown} alt="drown"/>

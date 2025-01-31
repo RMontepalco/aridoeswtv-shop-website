@@ -1,39 +1,40 @@
 import { useEffect, useState } from 'react'
 
+import CartItem from '../CartItem/CartItem'
+
 import './CartPage.css'
 
-export default function CartPage() {
-  // Initiate or load cart items from localStorage
-  const cartLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]")
-  const [cart, setCart] = useState(cartLocalStorage)
+export default function CartPage(props) {
+  // Display cart total
   const [total, setTotal] = useState(0)
 
   // Store cart to localStorage and calculate cart total
-  // TO DO: Round cart total to two decimal places
+  // TO DO: Figure out how to display trailing zeroes
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart))
     let curr = 0
-    cart.map(item => curr += parseFloat(item.price))
-    setTotal(curr)
-  }, [cart])
+    props.cart.map(item => curr += parseFloat(item.price))
+    setTotal(parseFloat(curr.toFixed(2)))
+  }, [props.cart])
 
+  // Take customer and cart to Stripe Hosted Checkout Page
   function checkOut() {
     // Check if cart is empty
-    // TO DO: Display empty cart message to customer
-    if (cart.length === 0) {
+    if (props.cart.length === 0) {
+      alert("Cart is empty")
       return
     }
 
     // Map and parse cart for POST request
-    const lineItems = cart.map(item => {
+    const lineItems = props.cart.map(item => {
       return {
         price: item.priceId,
         quantity: item.quantity
       }
     })
 
-    // Initiate POST request to the server
-    fetch("https://aridoeswtv-shop-website.onrender.com/create-checkout-session", {
+    // Initiate POST request to Render server
+    fetch("http://localhost:3000/create-checkout-session", {
+    // fetch("https://aridoeswtv-shop-website.onrender.com/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,26 +54,36 @@ export default function CartPage() {
   }
 
   // Map and render items
-  const cartData = cart.map(item => {
-    return <div className="cart-item">
-      <img className="cart-image" src={item.image}/>
-      <div className="cart-info">
-        <p>{item.name}</p>
-        <p>{item.price}</p>
-      </div>
-    </div>
+  let i = -1
+  const cartData = props.cart.map(item => {
+    i++
+    return <CartItem
+    key={i}
+    index={i}
+    name={item.name}
+    price={item.price}
+    description={item.description}
+    image={item.image}
+    cartLocalStorage={props.cartLocalStorage}
+    cart={props.cart}
+    removeFromCart={props.removeFromCart}
+    />
   })
 
   return (
     <div className="cart">
       <h1>Cart</h1>
+
       {
         // TO DO: Add headers
       }
+
       <div className="cart-items">
         {cartData}
       </div>
+
       <p>total: ${total} SGD</p>
+
       <button onClick={checkOut}>Check Out</button>
     </div>
   )
