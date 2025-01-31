@@ -21,9 +21,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
       - Email
       - Phone
       - Comments
-      - Shipping/Biling Address
-      - Shipping Method
-      - Payment Method
+      - Shipping/Biling Address (Enable all countries)
+      - Shipping Method (SG Ground, consult Arielle for International)
+      - Payment Method (Enable all methods)
       - Promo Code
 */
 app.post("/create-checkout-session", async (req, res) => {
@@ -43,18 +43,18 @@ app.post("/create-checkout-session", async (req, res) => {
       success_url: `https://aridoeswtv.web.app/`,
       cancel_url: `https://aridoeswtv.web.app//cart`,
     })
-    res.json({ url: session.url })
+    res.json({url: session.url})
   } catch (e) {
-    res.status(500).json({ error: e.message })
+    res.status(500).json({error: e.message})
   }
 })
 
-// Start up server on specified port
+// Display specified port on server
 app.get("/", (req, res) => {
   res.send(`Server running on port ${port}`)
 })
 
-
+// Start up server on specified port
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
 })
