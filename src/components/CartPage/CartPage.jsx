@@ -33,8 +33,8 @@ export default function CartPage(props) {
     })
 
     // Initiate POST request to Render server
-    fetch("http://localhost:3000/create-checkout-session", {
-    // fetch("https://aridoeswtv-shop-website.onrender.com/create-checkout-session", {
+    // fetch("http://localhost:3000/create-checkout-session", {
+    fetch("https://aridoeswtv-shop-website.onrender.com/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export default function CartPage(props) {
     price={item.price}
     description={item.description}
     image={item.image}
-    cartLocalStorage={props.cartLocalStorage}
+    quantity={item.quantity}
     cart={props.cart}
     removeFromCart={props.removeFromCart}
     />

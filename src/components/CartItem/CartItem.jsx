@@ -12,6 +12,7 @@ export default function CartItem(props) {
         <p>{props.name}</p>
         <p>{props.description}</p>
       </div>
+      <p className="cart-price">{props.quantity}</p>
       <p className="cart-price">${props.price} SGD</p>
       <img onClick={() => props.removeFromCart(props.index)} className="cart-remove" src={close} alt="Close Button" tabIndex="0"/>
     </div>

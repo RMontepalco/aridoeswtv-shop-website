@@ -20,28 +20,47 @@ import welcome from '/welcome.gif'
 import './App.css'
 
 export default function App() {
-  // Initiate or load cart items from localStorage
-  const cartLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]")
-  const [cart, setCart] = useState(cartLocalStorage)
+  // Initiate or load cart from localStorage
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart") || "[]"))
 
+  // Render page with cart
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart))
+    console.log("app rendered")
   }, [cart])
 
-  // Remove an item from cart
+  // Add item to cart
+  // TO DO: Increase item quantity when at least one item already in cart
+  function addToCart(item) {
+    setCart(prevCart => [...cart, {
+      buyId: item.buyId,
+      priceId: item.priceId,
+      name: item.name,
+      price: item.price,
+      description: item.description,
+      image: item.image,
+      quantity: 1
+    }])
+  }
+
+  // Remove item from cart
   function removeFromCart(index) {
     setCart(prevCart => prevCart.filter((item, i) => i !== index))
   }
 
   return (
     <div className="app">
-      <Navbar />
+      <Navbar
+        cart={cart}
+      />
       <Routes>
         <Route path="/" element={<HomePage />}/>
-        <Route path="/products" element={<ProductsPage />}/>
+        <Route path="/products" element={<ProductsPage
+          cart={cart}
+          addToCart={addToCart}
+        />}/>
         <Route path="/contact" element={<ContactPage />}/>
         <Route path="/cart" element={<CartPage
-          cartLocalStorage={cartLocalStorage}
           cart={cart}
           removeFromCart={removeFromCart}
         />}/>

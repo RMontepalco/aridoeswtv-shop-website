@@ -6,8 +6,7 @@ import Card from '../Card/Card'
 
 import './ProductsPage.css'
 
-export default function ProductsPage() {
-
+export default function ProductsPage(props) {
   // Store product category, product name, and array of products
   const [category, setCategory] = useState("products")
   const [product, setProduct] = useState("")
@@ -17,6 +16,11 @@ export default function ProductsPage() {
   const [categoryStyles, setCategoryStyles] = useState({display: "flex"})
   const [productStyles, setProductStyles] = useState({display: "none"})
 
+  // Render page with products
+  useEffect(() => {
+    getProducts()
+  }, [product])
+
   // Retrieve products from database and set it to state
   const getProducts = async () => {
     if (product) {
@@ -25,11 +29,6 @@ export default function ProductsPage() {
       setProducts(queryMap)
     }
   }
-
-  // Run effect on initial page render, rerun when product category is selected
-  useEffect(() => {
-    getProducts()
-  }, [product])
 
   function changeCategory(newCategory) {
     if (newCategory) {
@@ -56,6 +55,8 @@ export default function ProductsPage() {
       description={product.description}
       image={product.image}
       price={product.price}
+      cart={props.cart}
+      addToCart={props.addToCart}
     />
   })
 

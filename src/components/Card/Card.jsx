@@ -6,30 +6,8 @@ import stripe from '/stripe.svg'
 import './Card.css'
 
 export default function Card(props) {
-  // Initiate or load cart items from localStorage
-  const cartLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]")
-  const [cart, setCart] = useState(cartLocalStorage)
-
   // Store state of card overlay display
   const [styles, setStyles] = useState({display: "none"})
-
-  // Store cart to localStorage
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart))
-  }, [cart])
-
-  // Add items to cart
-  function addToCart() {
-    setCart(prevCart => [...cart, {
-      buyId: props.buyId,
-      priceId: props.priceId,
-      name: props.name,
-      price: props.price,
-      description: props.description,
-      image: props.image,
-      quantity: 1
-    }])
-  }
 
   // Toggle card overlay
   function toggleCardOverlay() {
@@ -59,7 +37,7 @@ export default function Card(props) {
             {
               // TO DO: Add feedback for adding to cart
             }
-              <div className="add" onClick={addToCart}>
+              <div className="add" onClick={() => props.addToCart(props)}>
                 <p>add to cart</p>
               </div>
               <p>or</p>
