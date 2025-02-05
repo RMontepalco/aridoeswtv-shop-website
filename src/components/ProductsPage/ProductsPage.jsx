@@ -1,8 +1,4 @@
 import { useState, useEffect } from 'react'
-import { collection, getDocs } from "firebase/firestore";
-
-import db from '../../firebase.js'
-import Card from '../Card/Card'
 
 import './ProductsPage.css'
 
@@ -18,17 +14,9 @@ export default function ProductsPage(props) {
 
   // Render page with products
   useEffect(() => {
-    getProducts()
+    props.getProducts(product)
+    console.log("products rendered")
   }, [product])
-
-  // Retrieve products from database and set it to state
-  const getProducts = async () => {
-    if (product) {
-      const querySnapshot = await getDocs(collection(db, "shop", "products", product));
-      const queryMap = querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
-      setProducts(queryMap)
-    }
-  }
 
   function changeCategory(newCategory) {
     if (newCategory) {
@@ -45,21 +33,6 @@ export default function ProductsPage(props) {
     }
   }
 
-  // Map and render products
-  const productsData = products.map(product => {
-    return <Card
-      key={product.id}
-      buyId={product.buyId}
-      priceId={product.priceId}
-      name={product.name}
-      description={product.description}
-      image={product.image}
-      price={product.price}
-      cart={props.cart}
-      addToCart={props.addToCart}
-    />
-  })
-
   return (
     <div className="products">
       <h1>{category}</h1>
@@ -75,7 +48,7 @@ export default function ProductsPage(props) {
       </div>
       <div className="products-data" style={productStyles}>
         <button onClick={() => changeCategory("")}>back</button>
-        <div className="products-list">{productsData}</div>
+        <div className="products-list">{props.productsData}</div>
       </div>
     </div>
   )

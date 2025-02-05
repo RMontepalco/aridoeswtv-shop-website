@@ -1,7 +1,13 @@
 .cart-item {
   display: flex;
   text-align: left;
+  row-gap: 20px;
   column-gap: 20px;
+  box-sizing: border-box;
+  border: 1px solid var(--purple);
+  border-radius: 15px;
+  padding: 20px 20px 20px 20px;
+  background-color: black;
 }
 
 .cart-image {
@@ -12,12 +18,16 @@
 .cart-info {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+}
+
+.cart-quantity {
+  display: flex;
+  margin-left: auto;
+  padding: 0px 125px 0px 0px;
 }
 
 .cart-price {
   display: flex;
-  margin-left: auto;
 }
 
 .cart-remove {
@@ -29,3 +39,5 @@
   cursor: pointer;
   background: var(--light-gray);
 }
+
+/* TO DO : Mobile UI responsiveness */

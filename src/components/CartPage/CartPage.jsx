@@ -74,9 +74,11 @@ export default function CartPage(props) {
     <div className="cart">
       <h1>Cart</h1>
 
-      {
-        // TO DO: Add headers
-      }
+      <div className="cart-header">
+        <p className="header-item">item</p>
+        <p className="header-quantity">quantity</p>
+        <p className="header-total">total</p>
+      </div>
 
       <div className="cart-items">
         {cartData}

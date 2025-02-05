@@ -18,11 +18,32 @@
   line-height: 1.2;
 }
 
+.cart-header {
+  display: flex;
+  width: 90%;
+  justify-content: left;
+  column-gap: 20px;
+}
+
+.header-item {
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.header-quantity {
+  margin-right: 50px;
+}
+
+.header-total {
+  margin-right: 125px;
+}
+
 .cart-items {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  box-sizing: border-box;
+  width: 90%;
   row-gap: 20px;
-  padding: 0px 30px 0px 30px;
+  padding: 30px 30px 30px 30px;
 }
+
+/* TO DO : Mobile UI Responsiveness */

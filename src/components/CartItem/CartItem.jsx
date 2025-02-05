@@ -7,14 +7,14 @@ import './CartItem.css'
 export default function CartItem(props) {
   return (
     <div className="cart-item">
-      <img className="cart-image" src={props.image}/>
+      <img className="cart-image" src={props.image} alt="Item image"/>
       <div className="cart-info">
         <p>{props.name}</p>
-        <p>{props.description}</p>
+        <p>${props.price} SGD</p>
       </div>
-      <p className="cart-price">{props.quantity}</p>
+      <p className="cart-quantity">{props.quantity}</p>
       <p className="cart-price">${props.price} SGD</p>
-      <img onClick={() => props.removeFromCart(props.index)} className="cart-remove" src={close} alt="Close Button" tabIndex="0"/>
+      <img className="cart-remove" onClick={() => props.removeFromCart(props.index)} src={close} alt="Close button" tabIndex="0"/>
     </div>
   )
 }

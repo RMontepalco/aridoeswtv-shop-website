@@ -62,7 +62,7 @@
 
 .hamster-ufo {
   position: absolute;
-  right: 17%;
+  right: 22%;
   transform: translateY(-15px);
   aspect-ratio: 1.05/1;
   width: 200px;
@@ -83,9 +83,4 @@
   gap: 40px;
 }
 
-.girl-sit {
-  aspect-ratio: 0.57/1;
-  position: absolute;
-  left: 10%;
-  top: 450px;
-}
+/* TO DO: Mobile UI responsiveness */

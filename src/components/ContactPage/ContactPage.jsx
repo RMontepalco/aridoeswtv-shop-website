@@ -1,33 +1,35 @@
+import './ContactPage.css'
+
 import blog from '/blog.png'
 import contactMe from '/contact-me.gif'
-import girlSit from '/girl-sit.png'
 import questions from '/questions.gif'
 import instagram from '/instagram.png'
 import koFi from '/ko-fi.png'
 
-import './ContactPage.css'
-
 export default function ContactPage() {
   return (
     <div className="contact">
-      <img className="girl-sit" src={girlSit} alt="girl-sit"/>
-        <img className="contact-header" src={contactMe} alt="contact-me"/>
+      <img className="contact-header" src={contactMe} alt="Contact me!"/>
       <div className="contact-links">
         <a href="https://www.instagram.com/aridoeswtv">
-          <img src={instagram} alt="instagram"/>
+          <img src={instagram} alt="Instagram"/>
           <p>instagram</p>
         </a>
         <a href="https://ko-fi.com/aridoeswtv">
-          <img src={koFi} alt="ko-fi"/>
+          <img src={koFi} alt="Ko-fi"/>
           <p>ko-fi</p>
         </a>
         <a href="https://aridoeswtv.blogspot.com">
-          <img src={blog} alt="blog"/>
+          <img src={blog} alt="Blogspot"/>
           <p>my blog!</p>
         </a>
       </div>
       <div className="questions">
-        <img className="contact-header" src={questions} alt="cquestions"/>
+        <img className="contact-header" src={questions} alt="Frequently asked questions"/>
+
+        {
+          // TO DO: Connect FAQ to database
+        }
         <p>
           Lorem ipsum odor amet, consectetuer adipiscing elit.
           Bibendum libero nec inceptos leo ligula semper aenean.
@@ -38,6 +40,7 @@ export default function ContactPage() {
           Nulla duis ex luctus enim ornare lacus.
           Mus curabitur duis urna habitant aenean tempor a mi.
         </p>
+        
       </div>
     </div>
   )

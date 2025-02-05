@@ -1,67 +1,44 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { collection, getDocs } from "firebase/firestore";
-
-import db from '../../firebase.js'
-import Card from '../Card/Card'
-
-import hamsterUfo from '/hamster-ufo.png'
-import girlSit from '/girl-sit.png'
 
 import './HomePage.css'
 
-export default function HomePage() {
-  // Store array of products
-  const [products, setProducts] = useState([])
+import hamsterUfo from '/hamster-ufo.png'
 
-  // Retrieve products from database and set it to state
-  const getProducts = async () => {
-    // TO DO: Find a better way to retrieve all products
-    let querySnapshot = await getDocs(collection(db, "shop", "products", "new"));
-    let queryMap = querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
-    setProducts(queryMap)
-  }
-
-  // Run effect on initial page render, rerun when product category is selected
+export default function HomePage(props) {
+  // Render page with products
   useEffect(() => {
-    getProducts()
-  }, [products])
-
-  // Map and render products
-  const productsData = products.map(product => {
-    return <Card
-      key={product.id}
-      name={product.name}
-      description={product.description}
-      image={product.image}
-      price={product.price}
-    />
-  })
+    props.getProducts("new")
+    console.log("products rendered")
+  }, [])
 
   return (
     <div className="home">
-      <img className="girl-sit" src={girlSit} alt="girl-sit"/>
       <div className="headlines">
         <div className="intro">
-          <p>
-            hello! my name is arielle and i make silly art that my brain comes up with :)
-          </p>
+          <p>hello! my name is arielle and i make silly art that my brain comes up with :)</p>
         </div>
         <div className="announcement">
-          <p>
-            <u>upcoming events!</u>
-          </p>
-          <p>
-            ongoing giveaway on my insta :)
-          </p>
+          <p><u>upcoming events!</u></p>
+
+          {
+            // TO DO: Add announcements to database
+          }
+          <p>ongoing giveaway on my insta :)</p>
+
         </div>
-        <img className="hamster-ufo" src={hamsterUfo} alt="hamster-ufo"/>
+        <img className="hamster-ufo" src={hamsterUfo} alt="Hamster in a UFO"/>
       </div>
+
+      {
+        // TO DO: Make new products into a carousel
+      }
       <div className="new-products">
         <div className="new-products-data">
-          {productsData}
+          {props.productsData}
         </div>
       </div>
+
     </div>
   )
 }

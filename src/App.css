@@ -16,13 +16,13 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
-
   /* Font "Silkscreen" from https://fonts.google.com/ */
   font-family: "Silkscreen", serif;
   font-weight: 400;
   font-style: normal;
+
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -41,17 +41,45 @@ h1, h2, h3, p, a {
   row-gap: 25px;
 }
 
-.sidebar {
+.app-left-sidebar {
   display: flex;
   flex-direction: column;
-  align-items: end;
-  row-gap: 10px;
+  position: absolute;
+  transform: translateY(225px);
+  right: 74%;
+  row-gap: 20px;
+}
+
+.girl-sit {
+  aspect-ratio: 0.57/1;
+  width: 250px;
+}
+
+.things {
+  display: flex;
+  flex-direction: column;
+}
+
+.things img {
+  aspect-ratio: 1/1;
+  width: 200px;
+}
+
+.girl-dance {
+  aspect-ratio: 0.63/1;
+  width: 300px;
+}
+
+.app-right-sidebar {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   transform: translateY(225px);
   left: 83%;
+  row-gap: 20px;
 }
 
-.sidebar img {
+.app-right-sidebar img {
   width: 200px;
 }
 
@@ -65,3 +93,5 @@ h1, h2, h3, p, a {
 .footer img {
   width: 32%;
  }
+
+/* TO DO: Mobile UI responsiveness */

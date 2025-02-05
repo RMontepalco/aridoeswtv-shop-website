@@ -48,9 +48,4 @@
   padding: 30px;
 }
 
-.girl-sit {
-  aspect-ratio: 0.57/1;
-  position: absolute;
-  left: 10%;
-  top: 450px;
-}
+/* TO DO: Mobile UI Responsiveness */
