@@ -86,6 +86,9 @@ export default function CartPage(props) {
 
       <p>total: ${total} SGD</p>
 
+      {
+        // TO DO: Add feedback when checking out
+      }
       <button onClick={checkOut}>Check Out</button>
     </div>
   )

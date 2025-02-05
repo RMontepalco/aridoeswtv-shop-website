@@ -42,7 +42,9 @@ export default function App() {
 
   // Add item to cart
   // TO DO: Increase item quantity when at least one item already in cart
+  // TO DO: Add feedback when customer adds item to cart
   function addToCart(item) {
+    alert(`${item.name} added to cart`)
     setCart(prevCart => [...cart, {
       buyId: item.buyId,
       priceId: item.priceId,
@@ -73,10 +75,13 @@ export default function App() {
   const productsData = products.map(product => {
     return <Card
       key={product.id}
+      buyId={product.buyId}
+      priceId={product.priceId}
       name={product.name}
       description={product.description}
       image={product.image}
       price={product.price}
+      cart={cart}
       addToCart={addToCart}
     />
   })
