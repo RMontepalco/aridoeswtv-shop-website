@@ -1,34 +1,20 @@
-/*
-  TO DO: Refactor code
-*/
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  max-width: 250px;
-  row-gap: 5px;
-  box-sizing: border-box;
+  text-align: left;
   border: 1px solid var(--purple);
   border-radius: 15px;
   padding: 10px 10px 10px 10px;
+  width: 250px;
   background-color: black;
   cursor: pointer;
 }
 
-.card-image {
-  object-fit: cover;
-  aspect-ratio: 1/1;
-  width: 100%;
+.card img {
   border-radius: 10px;
-}
-
-.card-info {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+  margin-bottom: 10px;
   width: 100%;
+  object-fit: cover;
 }
 
 .card-overlay-container {
@@ -43,122 +29,113 @@
 }
 
 .card-overlay-background {
+  position: fixed;
   width: 100vw;
   height: 100vh;
-  position: fixed;
   cursor: pointer;
   background-color: rgb(0, 0, 0, 0.5);
 }
 
 .card-overlay {
   display: flex;
-  width: 800px;
-  height: 500px;
   position: fixed;
-  box-sizing: border-box;
+  column-gap: 30px;
   border: 1px solid var(--purple);
   border-radius: 15px;
+  padding: 50px 30px 50px 30px;
+  width: 800px;
   background-color: black;
 }
 
 .card-overlay-image {
+  display: flex;
+  align-items: start;
+  width: 50%;
+}
+
+.card-overlay-image img {
+  border-radius: 10px;
+  width: 100%;
   object-fit: cover;
   aspect-ratio: 1/1;
-  width: 350px;
-  height: 350px;
-  margin: 75px 10px 75px 40px;
-  border-radius: 10px;
 }
 
 .card-overlay-info {
-  display: flex;  
+  display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: left;
   text-align: left;
   row-gap: 20px;
-  box-sizing: border-box;
-  width: 310px;
-  height: 350px;
-  margin: 75px 40px 75px 10px;
+  width: 50%;
 }
 
-.add-or-buy {
+.card-overlay-info h2 {
+  font-size: 1.25rem;
+}
+
+.card-add-or-buy {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 5px;
+  row-gap: 10px;
 }
 
-.add {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
-  width: 100px;
-  height: 25px;
-  border: 1px solid var(--purple);
-  background-color: var(--light-gray);
-  cursor: pointer;
+.card-add {
+  width: 110px;
+  height: 30px;
 }
 
-.add p {
+.card-add p {
   color: black;
-  /* TO DO: Replace shadow with outline */
   text-shadow: 1px 1px 2px var(--purple);
-  /* Font "Inter" from https://fonts.google.com/ */
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-.stripe {
+.card-buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
   width: 150px;
-  height: 50px;
+  height: 40px;
+  overflow: hidden;
 }
 
-.close-button {
+.card-close {
+  position: fixed;
   width: 30px;
   height: 30px;
-  margin: 10px 10px 0px 0px;
-  cursor: pointer;
+  transform: translate(720px, -30px)
+}
+
+.card:active {
+  filter: brightness(70%);
 }
 
 @media (max-width: 828px) {
   .card-overlay {
-    all: unset;
-    display: flex;
     flex-direction: column;
     align-items: center;
+    row-gap: 20px;
+    padding: 20px 20px 20px 20px;
+    width: 90%;
     max-width: 400px;
-    position: fixed;
-    margin: 0% 10% 0% 10%;
-    border-radius: 30px;
-    background-color: var(--mid-blue);
   }
 
   .card-overlay-image {
-    margin: unset;
     width: 100%;
-    border-radius: 30px 30px 0px 0px;
   }
 
   .card-overlay-info {
-    all: unset;
-    display: flex;  
-    flex-direction: column;
     text-align: center;
-    gap: 10px;
-    padding: 5%;
+    width: 100%;
   }
 
-  .close-button {
-    position: absolute;
+  .card-close {
     align-self: end;
-    border-radius: 30px;
-    margin: 10px 10px 0px 0px;
-    background-color: var(--mid-blue);
+    position: fixed;
+    transform: unset;
   }
 }

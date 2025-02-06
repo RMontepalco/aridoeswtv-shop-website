@@ -17,40 +17,40 @@ export default function Card(props) {
   return (
     <div>
       <div className="card" onClick={toggleCardOverlay} tabIndex="0">
-        <img className="card-image" src={props.image} alt="Product Image"/>
-        <div className="card-info">
-          <p>{props.name}</p>
-          <p>${props.price} SGD</p>
-        </div>
+        <img src={props.image} alt="Product Image"/>
+        <p>{props.name}</p>
+        <p>${props.price} SGD</p>
       </div>
       <div className="card-overlay-container" style={styles}>
         <div className="card-overlay-background" onClick={toggleCardOverlay}></div>
         <div className="card-overlay">
-          <img className="card-overlay-image" src={props.image} alt="Product Image"/>
+          <img className="app-button card-close" src={close} alt="Close Button" onClick={toggleCardOverlay} tabIndex="0"/>
+          <div className="card-overlay-image">
+            <img src={props.image} alt="Product Image"/>
+          </div>
           <div className="card-overlay-info">
             <div style={{display: "flex", flexDirection: "column"}}>
               <h2>{props.name}</h2>
               <h3>${props.price} SGD</h3>
             </div>
             <p>{props.description}</p>
-            <div className="add-or-buy">
-            {
-              // TO DO: Add feedback for adding to cart
-            }
-              <div className="add" onClick={() => props.addToCart(props)}>
+            <div className="card-add-or-buy">
+              <div className="app-button card-add" onClick={() => props.addToCart(props)}>
                 <p>add to cart</p>
               </div>
               <p>or</p>
-              <stripe-buy-button
-                buy-button-id={props.buyId}
-                publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
-              >
-              </stripe-buy-button>
-              <img className="stripe" src={stripe} alt="Powered by Stripe"/>
+              <div>
+                <div className="card-buy">
+                  <stripe-buy-button
+                    buy-button-id={props.buyId}
+                    publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
+                  >
+                  </stripe-buy-button>
+                </div>
+                <img className="app-stripe" src={stripe} alt="Powered by Stripe"/>
+              </div>
             </div>
           </div>
-          <img className="close-button" src={close} alt="Close Button" 
-            onClick={toggleCardOverlay} tabIndex="0"/>
         </div>
       </div>
     </div>

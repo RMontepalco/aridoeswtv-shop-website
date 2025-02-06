@@ -5,14 +5,14 @@ import './Navbar.css'
 export default function Navbar(props) {
   return (
     <nav className="navbar">
-      <div className="banner">
+      <div className="navbar-banner">
         <h1>welcome to aridoeswtv's shop</h1>
       </div>
-      <div className="navbuttons">
-        <Link to="/">Home</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/cart">Cart ({props.cart.length})</Link>
+      <div className="navbar-buttons">
+        <Link className="app-button" to="/">home</Link>
+        <Link className="app-button" to="/products">products</Link>
+        <Link className="app-button" to="/contact">contact</Link>
+        <Link className="app-button" to="/cart">cart ({props.cart.length})</Link>
       </div>
     </nav>
   )

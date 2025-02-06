@@ -9,7 +9,6 @@ import Card from './components/Card/Card'
 import ContactPage from './components/ContactPage/ContactPage'
 import CartPage from './components/CartPage/CartPage'
 import db from './firebase.js'
-
 import './App.css'
 
 import aliens from '/aliens.gif'
@@ -44,7 +43,6 @@ export default function App() {
   // TO DO: Increase item quantity when at least one item already in cart
   // TO DO: Add feedback when customer adds item to cart
   function addToCart(item) {
-    alert(`${item.name} added to cart`)
     setCart(prevCart => [...cart, {
       buyId: item.buyId,
       priceId: item.priceId,
@@ -54,6 +52,7 @@ export default function App() {
       image: item.image,
       quantity: 1
     }])
+    alert(`${item.name} added to cart`)
   }
 
   // Remove item from cart
@@ -88,39 +87,36 @@ export default function App() {
 
   return (
     <div className="app">
-      <Navbar cart={cart} />
-      <Routes>
-        <Route path="/" element={<HomePage getProducts={getProducts} productsData={productsData} />}/>
-        <Route path="/products" element={<ProductsPage cart={cart} addToCart={addToCart} getProducts={getProducts} productsData={productsData} />}/>
-        <Route path="/contact" element={<ContactPage />}/>
-        <Route path="/cart" element={<CartPage cart={cart} removeFromCart={removeFromCart} />}/>
-      </Routes>
-
-      {
-        // TO DO: Reorganize images and gifs
-      }
-      <div className="app-left-sidebar">
-        <img className="girl-sit" src={girlSit} alt="Girl sitting"/>
-        <div className="things">
+      <div className="app-sidebar">
+        <img className="app-girl-dance" src={girlDance} alt="Girl dancing"/>
+        <div className="app-collage">
+          <img className="app-cat-yellow" src={catYellow} alt="Yellow Cat"/>
+          <img src={clown} alt="Clown"/>
           <img src={butterfly} alt="Butterfly"/>
         </div>
-        <img className="girl-dance" src={girlDance} alt="Girl dancing"/>
+        <img src={catBlue} alt="Blue cat"/>
       </div>
-      <div className="app-right-sidebar">
+      <div className="app-content">
+        <Navbar cart={cart} />
+        <Routes>
+          <Route path="/" element={<HomePage getProducts={getProducts} productsData={productsData} />}/>
+          <Route path="/products" element={<ProductsPage cart={cart} addToCart={addToCart} getProducts={getProducts} productsData={productsData} />}/>
+          <Route path="/contact" element={<ContactPage />}/>
+          <Route path="/cart" element={<CartPage cart={cart} removeFromCart={removeFromCart} />}/>
+        </Routes>
+        <div className="footer">
+          <img src={welcome} alt="Welcome to aridoeswtv's shop!"/>
+          <img src={thankYou} alt="Thank you for supporting"/>
+          <img src={connection} alt="We have a connection"/>
+        </div>
+      </div>
+      <div className="app-sidebar">
         <img src={drown} alt="Drown it all out"/>
         <img src={stardust} alt="Made of stardust"/>
         <img src={aliens} alt="Do you believe in aliens?"/>
         <img src={joke} alt="Congratulations!"/>
         <img src={existing} alt="Thank you for existing"/>
-        <img src={catBlue} alt="Blue cat"/>
-        <img src={catYellow} alt="Yellow Cat"/>
-        <img src={clown} alt="Clown"/>
-      </div>
-      <div className="footer">
-        <img src={welcome} alt="Welcome to aridoeswtv's shop!"/>
-        <img src={thankYou} alt="Thank you for supporting"/>
-        <img src={connection} alt="We have a connection"/>
-
+        <img className="app-girl-sit" src={girlSit} alt="Girl sitting"/>
       </div>
     </div>
   )

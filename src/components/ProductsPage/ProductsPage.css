@@ -2,59 +2,83 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   row-gap: 30px;
-  padding: 30px 0px 30px 0px;
-  width: 60%;
-  min-height: 400px;
+  min-height: 860px;
   background: url(/galaxy-background.jpeg);
 }
 
-.products h1 {
-  /* Font "Pres Start 2P" from https://fonts.google.com/ */
-  font-family: "Press Start 2P", serif;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.2;
+.products-header {
+  margin: 30px 30px 0px 30px;
 }
 
-.categories {
+.products-categories {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
+  margin-bottom: 30px;
 }
 
-.categories button {
-  all: unset;
-  color: white;
+.products-category-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  row-gap: 10px;
+  border: 1px solid var(--purple);
+  border-radius: 15px;
+  padding: 10px 10px 10px 10px;
+  width: 250px;
+  background-color: black;
   cursor: pointer;
+}
+
+.products-category-card:active {
+  filter: brightness(70%);
+}
+
+.products-category-card img {
+  border-radius: 10px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.products-categories h2 {
+  text-align: center;
+  font-size: 1rem;
 }
 
 /*
   TO DO: Make last column align left
 */
-.products-data {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  max-width: 830px;
-  padding:  0% 10% 0% 10%;
-}
-
-.products-data button {
-  all: unset;
-  color: white;
-  cursor: pointer;
-}
-
 .products-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  max-width: 830px;
 }
 
-/* TO DO: Mobile UI Responsiveness */
+.products-back {
+  width: 70px;
+  height: 30px;
+}
+
+.products-data {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+}
+
+
+@media (width <= 640px) {
+  .products-data {
+    grid-template-columns: auto;
+  }
+}
+
+@media (width > 640px) and (width <= 1024px) {
+  .products-data {
+    grid-template-columns: auto auto;
+  }
+}

@@ -33,22 +33,35 @@ export default function ProductsPage(props) {
     }
   }
 
+  const categories = ["keychains", "pins", "stickers", "prints", "accessories"]
+  const categoriesCards = categories.map(category => {
+    return <div className="products-category-card" onClick={() => changeCategory(category)}>
+        <img src="/product-image.png" alt="Product Image"/>
+        <h2>{category}</h2>
+    </div>
+  })
+
   return (
     <div className="products">
-      <h1>{category}</h1>
-      <div className="categories" style={categoryStyles}>
-      {
-        // TO DO: Create cards for product categories
-      }
-        <button onClick={() => changeCategory("keychains")}>keychains</button>
-        <button onClick={() => changeCategory("pins")}>pins</button>
-        <button onClick={() => changeCategory("stickers")}>stickers</button>
-        <button onClick={() => changeCategory("prints")}>prints</button>
-        <button onClick={() => changeCategory("accessories")}>accessories</button>
+      <h2 className="products-header">{category}</h2>
+      <div className="products-categories" style={categoryStyles}>
+        {categoriesCards}
       </div>
-      <div className="products-data" style={productStyles}>
-        <button onClick={() => changeCategory("")}>back</button>
-        <div className="products-list">{props.productsData}</div>
+      <div className="products-list" style={productStyles}>
+        <div className="app-button products-back" onClick={() => changeCategory("")}>back</div>
+        <div className="products-data">
+          {props.productsData}
+          {props.productsData}
+          {props.productsData}
+          {props.productsData}
+          {props.productsData}
+          {props.productsData}
+          {props.productsData}
+          {props.productsData}
+          {props.productsData}
+          {props.productsData}
+          {props.productsData}
+        </div>
       </div>
     </div>
   )

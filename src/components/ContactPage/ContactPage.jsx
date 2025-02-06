@@ -13,34 +13,37 @@ export default function ContactPage() {
       <div className="contact-links">
         <a href="https://www.instagram.com/aridoeswtv">
           <img src={instagram} alt="Instagram"/>
-          <p>instagram</p>
+          <h2>instagram</h2>
         </a>
         <a href="https://ko-fi.com/aridoeswtv">
           <img src={koFi} alt="Ko-fi"/>
-          <p>ko-fi</p>
+          <h2>ko-fi</h2>
         </a>
         <a href="https://aridoeswtv.blogspot.com">
           <img src={blog} alt="Blogspot"/>
-          <p>my blog!</p>
+          <h2>my blog!</h2>
         </a>
       </div>
-      <div className="questions">
+      <div className="contact-questions">
         <img className="contact-header" src={questions} alt="Frequently asked questions"/>
-
-        {
-          // TO DO: Connect FAQ to database
-        }
-        <p>
-          Lorem ipsum odor amet, consectetuer adipiscing elit.
-          Bibendum libero nec inceptos leo ligula semper aenean.
-          Rhoncus gravida nullam tempor, conubia fringilla per non.
-          Luctus metus facilisis pellentesque mi metus curabitur ut.
-          Sodales ipsum dui, integer tortor ultrices dolor torquent. 
-          uctus ultricies eu enim nisi arcu massa commodo.
-          Nulla duis ex luctus enim ornare lacus.
-          Mus curabitur duis urna habitant aenean tempor a mi.
-        </p>
-        
+        <ul>
+          <li>
+            Q: Lorem ipsum odor amet, consectetuer adipiscing elit.<br/>
+            A: Bibendum libero nec inceptos leo ligula semper aenean.
+          </li>
+          <li>
+            Q: Bibendum libero nec inceptos leo ligula semper aenean.<br/>
+            A: Rhoncus gravida nullam tempor, conubia fringilla per non.
+          </li>
+          <li>
+            Q: Luctus metus facilisis pellentesque mi metus curabitur ut.<br/>
+            A: Sodales ipsum dui, integer tortor ultrices dolor torquent. 
+          </li>
+          <li>
+            Q: Uctus ultricies eu enim nisi arcu massa commodo.<br/>
+            A: Nulla duis ex luctus enim ornare lacus.
+          </li>
+        </ul>
       </div>
     </div>
   )

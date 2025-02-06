@@ -1,10 +1,9 @@
 :root {
-  --dark-blue: #477081;
-  --mid-blue: #D6E4FC;
-  --light-blue: #F0F3FC;
-  --blue: #003172;
+  --dark-blue: #003172;
+  --light-blue: #00BBFF;
   --purple: #4D51A5;
   --light-gray: #D9D9D9;
+  --dark-gray: #999999;
 }
 
 /* Font "Papyrus" from https://befonts.com/papyrus-font.html */
@@ -21,6 +20,7 @@
   font-weight: 400;
   font-style: normal;
 
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -29,69 +29,134 @@ body {
   background-color: black;
 }
 
-h1, h2, h3, p, a {
+h1, h2, h3, p, a, li {
   text-decoration: none;
   color: white;
 }
 
+h2, u {
+  /* Font "Press Start 2P" from https://fonts.google.com/ */
+  font-family: "Press Start 2P", serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+h1 {
+  font-family: "papyrus";
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+a {
+  /* Font "Inter" from https://fonts.google.com/ */
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+li {
+  list-style-type: none;
+}
+
+img {
+  aspect-ratio: auto;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
 .app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 25px;
+  justify-content: center;
+  column-gap: 20px;
+  padding: 20px 0px 20px;
+  width: 100%;
 }
 
-.app-left-sidebar {
+.app-content {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  transform: translateY(225px);
-  right: 74%;
   row-gap: 20px;
+  width: 100%;
+  max-width: 1024px;
 }
 
-.girl-sit {
-  aspect-ratio: 0.57/1;
-  width: 250px;
-}
-
-.things {
+.app-sidebar {
   display: flex;
   flex-direction: column;
-}
-
-.things img {
-  aspect-ratio: 1/1;
+  row-gap: 20px;
+  margin-top: 220px;
   width: 200px;
 }
 
-.girl-dance {
-  aspect-ratio: 0.63/1;
-  width: 300px;
+.app-sidebar img {
+  width: 200px;
 }
 
-.app-right-sidebar {
+.app-collage {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  transform: translateY(225px);
-  left: 83%;
+  flex-wrap: wrap;
+  justify-content: right;
+  align-items: flex-end;
   row-gap: 20px;
 }
 
-.app-right-sidebar img {
-  width: 200px;
+.app-collage img {
+  width: 100px;
+}
+
+.app-cat-yellow {
+  transform: translateY(40px);
+}
+
+.app-girl-dance {
+  transform: translateX(80px);
+}
+
+.app-girl-sit {
+  transform: translateX(-80px);
 }
 
 .footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 60%;
+  width: 100%;
 }
 
 .footer img {
   width: 32%;
- }
+}
 
-/* TO DO: Mobile UI responsiveness */
+.app-stripe {
+  margin: 5px;
+}
+
+.app-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--purple);
+  color: black;
+  font-family: "Inter", sans-serif;
+  text-shadow: 1px 1px 2px var(--purple);
+  background-color: var(--light-gray);
+  cursor: pointer;
+}
+
+.app-button:active {
+  background-color: var(--dark-gray);
+}
+
+@media (max-width: 1280px) {
+  .app {
+    width: 95%;
+  }
+
+  .app-sidebar {
+    display: none;
+  }
+}

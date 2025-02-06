@@ -2,85 +2,113 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   row-gap: 30px;
-  width: 60%;
   background: url(/galaxy-background.jpeg);
 }
 
-.headlines {
+.home-headlines {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 30px;
   width: 100%;
-  box-sizing: border-box;
 }
 
-.headlines p, u {
-  /* Font "Pres Start 2P" from https://fonts.google.com/ */
-  font-family: "Press Start 2P", serif;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.2;
+.home-headlines h2 {
+  font-size: 1rem;
 }
 
-.intro {
+.home-ellipse {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
+  border: 2px solid var(--light-blue);
+  border-radius: 50%;
   width: 60%;
   height: 170px;
   position: relative;
+  background-color: var(--dark-blue);
+}
+
+.home-intro {
+  text-align: center;
+  padding: 5%;
   right: 20%;
-  padding: 50px;
-  /* TO DO: light blue border around ellipse */
-  clip-path: ellipse(50% 50% at 50% 50%);
   transform: rotate(355deg);
-  background-color: var(--blue);
 }
 
-.announcement {
-  display: flex;
+.home-announcement {
+  text-align: left;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  row-gap: 10px;
-  width: 60%;
-  height: 170px;
-  position: relative;
+  justify-content: right;
   left: 20%;
-  padding: 50px;
-  /* TO DO: light blue border around ellipse */
-  clip-path: ellipse(50% 50% at 50% 50%);
   transform: rotate(5deg);
-  background-color: var(--blue);
 }
 
-.hamster-ufo {
+.home-announcement h2 {
+  padding: 30px 0px 10px 0px;
+}
+
+.home-announcement ul {
+  padding: 5%;
+}
+
+.home-hamster-ufo {
   position: absolute;
-  right: 22%;
-  transform: translateY(-15px);
-  aspect-ratio: 1.05/1;
-  width: 200px;
+  transform: translate(20%,-80%);
+  width: 150px;
 }
 
-.new-products {
+.home-carousel {
+  text-align: center;
+  margin-bottom:30px;
+  border: 2px solid var(--light-blue);
+  width: 80%;
+  height: 400px;
+  overflow: hidden;
+  background-color: var(--dark-blue);
+}
+
+.home-carousel h2 {
+  margin: 20px 0px 20px 0px;
+}
+
+.home-products {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 80px;
+  column-gap: 30px;
+  animation: carousel 1s linear infinite;
 }
 
-.new-products-data {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
+.home-products img {
+  width: 300px;
 }
 
-/* TO DO: Mobile UI responsiveness */
+@keyframes carousel {
+  100% {
+    transform: translateX(-81%);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-headlines h2, .home-headlines li {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .home-headlines {
+    row-gap: 80px;
+  }
+
+  .home-ellipse {
+    width: 100%;
+    max-width: 591px;
+    height: 200px;
+  }
+
+  .home-intro, .home-announcement {
+    right: 0%;
+    left: 0%;
+  }
+}

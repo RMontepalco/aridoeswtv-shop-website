@@ -2,21 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  row-gap: 30px;
-  width: 60%;
+  min-height: 860px;
   background: url(/galaxy-background.jpeg);
-}
-.contact p {
-  /* Font "Pres Start 2P" from https://fonts.google.com/ */
-  font-family: "Press Start 2P", serif;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.2;
 }
 
 .contact-header {
-  width: 50%;
+  margin: 30px;
+  width: 90%;
+  max-width: 400px;
 }
 
 .contact-links {
@@ -34,18 +27,25 @@
   display: flex;
   flex-direction: column;
   aspect-ratio: 1.11/1;
-  width: 200px;
+  max-width: 200px;
 }
 
-.questions {
+.contact-links h2 {
+  font-size: 1rem;
+}
+
+.contact-questions {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 30px;
   width: 100%;
   box-sizing: border-box;
   padding: 30px;
 }
 
-/* TO DO: Mobile UI Responsiveness */
+.contact-questions ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}

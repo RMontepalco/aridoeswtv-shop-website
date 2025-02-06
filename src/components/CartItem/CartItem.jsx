@@ -1,20 +1,28 @@
 import { useEffect, useState } from 'react'
 
-import close from '/x.svg'
-
 import './CartItem.css'
+
+import close from '/x.svg'
 
 export default function CartItem(props) {
   return (
     <div className="cart-item">
-      <img className="cart-image" src={props.image} alt="Item image"/>
       <div className="cart-info">
-        <p>{props.name}</p>
-        <p>${props.price} SGD</p>
+        <img className="cart-image" src={props.image} alt="Item image"/>
+        <div className="cart-text">
+          <p>{props.name}</p>
+          <p>${props.price} SGD</p>
+        </div>
       </div>
-      <p className="cart-quantity">{props.quantity}</p>
-      <p className="cart-price">${props.price} SGD</p>
-      <img className="cart-remove" onClick={() => props.removeFromCart(props.index)} src={close} alt="Close button" tabIndex="0"/>
+      <div className="cart-quantity">
+        <p className="cart-mobile-header">quantity:&nbsp;</p>
+        <p>{props.quantity}</p>
+        </div>
+      <div className="cart-total">
+        <p className="cart-mobile-header">total:&nbsp;</p>
+        <p>${props.price} SGD</p>
+        <img className="app-button cart-remove" onClick={() => props.removeFromCart(props.index)} src={close} alt="Close button" tabIndex="0"/>
+      </div>
     </div>
   )
 }

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 
 import CartItem from '../CartItem/CartItem'
-
 import './CartPage.css'
+
+import stripe from '/stripe.svg'
 
 export default function CartPage(props) {
   // Display cart total
@@ -72,24 +73,20 @@ export default function CartPage(props) {
 
   return (
     <div className="cart">
-      <h1>Cart</h1>
-
+      <h2>cart</h2>
       <div className="cart-header">
-        <p className="header-item">item</p>
-        <p className="header-quantity">quantity</p>
-        <p className="header-total">total</p>
+        <p>item</p>
+        <p>quantity</p>
+        <p>total</p>
       </div>
-
       <div className="cart-items">
         {cartData}
       </div>
-
       <p>total: ${total} SGD</p>
-
-      {
-        // TO DO: Add feedback when checking out
-      }
-      <button onClick={checkOut}>Check Out</button>
+      <div className="cart-check-out">
+        <div className="app-button cart-check-out-button"onClick={checkOut}>Check Out</div>
+        <img className="app-stripe" src={stripe} alt="Powered by Stripe"/>
+      </div>
     </div>
   )
 }

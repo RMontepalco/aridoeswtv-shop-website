@@ -1,52 +1,37 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   row-gap: 10px;
   height: 200px;
-  width: 60%;
 }
 
-.banner {
+.navbar-banner {
   display: flex;
   justify-content: right;
   align-items: end;
-  box-sizing: border-box;
   padding: 10px;
   width: 100%;
   height: 165px;
   background-image: url(/galaxy-background.jpeg);
 }
 
-.banner h1 {
-  /* Font "Papyrus" from https://befonts.com/papyrus-font.html */
-  font-family: "papyrus";
-  font-size: 3rem;
-  font-weight: normal;
+.navbar-banner h1 {
+  text-align: right;
 }
 
-.navbuttons {
+.navbar-buttons {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 25px;
+  height: 30px;
 }
 
-.navbuttons a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  border: 1px solid var(--purple);
+.navbar-buttons a {
   width: 25%;
-  color: black;
-  /* TO DO: Replace shadow with outline */
-  text-shadow: 1px 1px 2px var(--purple);
-  background-color: var(--light-gray);
-  /* Font "Inter" from https://fonts.google.com/ */
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+}
+
+@media (max-width: 1024px) {
+  .navbar h1 {
+    font-size: 2.5rem;
+  }
 }
