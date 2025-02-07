@@ -13,7 +13,7 @@ export default function CartPage(props) {
   // TO DO: Figure out how to display trailing zeroes
   useEffect(() => {
     let curr = 0
-    props.cart.map(item => curr += parseFloat(item.price))
+    props.cart.map(item => curr += parseFloat(item.price * item.quantity))
     setTotal(parseFloat(curr.toFixed(2)))
   }, [props.cart])
 
@@ -35,6 +35,7 @@ export default function CartPage(props) {
 
     // Initiate POST request to Render server
     // fetch("http://localhost:3000/create-checkout-session", {
+    // TO DO: Feedback when clicking on check out
     fetch("https://aridoeswtv-shop-website.onrender.com/create-checkout-session", {
       method: "POST",
       headers: {
@@ -47,9 +48,11 @@ export default function CartPage(props) {
       return res.json().then(e => Promise.reject(e))
     })
     .then(({ url }) => {
+      alert("Redirecting you to Stripe...")
       window.location = url
     })
     .catch(e => {
+      alert(e.error)
       console.error(e.error)
     })
   }
@@ -61,12 +64,14 @@ export default function CartPage(props) {
     return <CartItem
     key={i}
     index={i}
+    productId={item.productId}
     name={item.name}
     price={item.price}
     description={item.description}
     image={item.image}
     quantity={item.quantity}
     cart={props.cart}
+    adjustQuantity={props.adjustQuantity}
     removeFromCart={props.removeFromCart}
     />
   })

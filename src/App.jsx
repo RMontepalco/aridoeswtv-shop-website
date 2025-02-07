@@ -33,31 +33,68 @@ export default function App() {
   // Store products from database
   const [products, setProducts] = useState([])
 
+  // Display number of items in cart
+  const [count, setCount] = useState(0)
+
   // Render page with cart
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart))
+    countItems()
     console.log("cart rendered")
   }, [cart])
 
   // Add item to cart
-  // TO DO: Increase item quantity when at least one item already in cart
-  // TO DO: Add feedback when customer adds item to cart
-  function addToCart(item) {
-    setCart(prevCart => [...cart, {
-      buyId: item.buyId,
-      priceId: item.priceId,
-      name: item.name,
-      price: item.price,
-      description: item.description,
-      image: item.image,
-      quantity: 1
-    }])
-    alert(`${item.name} added to cart`)
+  function addToCart(item, quantity) {
+    let index = cart.findIndex(i => i.productId === item.productId);
+    if (index === -1) {
+      setCart(prevCart => [...prevCart, {
+        productId: item.productId,
+        priceId: item.priceId,
+        name: item.name,
+        price: item.price,
+        description: item.description,
+        image: item.image,
+        quantity: quantity
+      }])
+      alert(`${item.name} added to cart`)
+    } else {
+      setCart(prevCart => {
+        let newCart = [...prevCart]
+        let newItem = newCart[index]
+        newItem.quantity += quantity
+        newCart[index] = newItem
+        return newCart
+      })
+      alert(`${item.name} added to cart again`)
+    }
   }
 
   // Remove item from cart
   function removeFromCart(index) {
     setCart(prevCart => prevCart.filter((item, i) => i !== index))
+  }
+
+  // Adjust item quantity in cart
+  function adjustQuantity(productId, amount) {
+    let index = cart.findIndex(i => i.productId === productId);
+    setCart(prevCart => {
+      let newCart = [...prevCart]
+      let newItem = newCart[index]
+      newItem.quantity += amount
+      if (newItem.quantity <= 0) {
+        newItem.quantity = 1
+        return prevCart
+      }
+      newCart[index] = newItem
+      return newCart
+    })
+  }
+
+  // Calculate total number of items in cart
+  function countItems() {
+    let newCount = 0;
+    cart.map(item => newCount += item.quantity)
+    setCount(newCount)
   }
 
   // Retrieve products from database
@@ -74,12 +111,12 @@ export default function App() {
   const productsData = products.map(product => {
     return <Card
       key={product.id}
-      buyId={product.buyId}
+      productId={product.productId}
       priceId={product.priceId}
       name={product.name}
+      price={product.price}
       description={product.description}
       image={product.image}
-      price={product.price}
       cart={cart}
       addToCart={addToCart}
     />
@@ -97,12 +134,12 @@ export default function App() {
         <img src={catBlue} alt="Blue cat"/>
       </div>
       <div className="app-content">
-        <Navbar cart={cart} />
+        <Navbar cart={cart} count={count} />
         <Routes>
           <Route path="/" element={<HomePage getProducts={getProducts} productsData={productsData} />}/>
           <Route path="/products" element={<ProductsPage cart={cart} addToCart={addToCart} getProducts={getProducts} productsData={productsData} />}/>
           <Route path="/contact" element={<ContactPage />}/>
-          <Route path="/cart" element={<CartPage cart={cart} removeFromCart={removeFromCart} />}/>
+          <Route path="/cart" element={<CartPage cart={cart} adjustQuantity={adjustQuantity} removeFromCart={removeFromCart} />}/>
         </Routes>
         <div className="footer">
           <img src={welcome} alt="Welcome to aridoeswtv's shop!"/>

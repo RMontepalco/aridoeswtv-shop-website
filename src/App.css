@@ -145,10 +145,26 @@ img {
   text-shadow: 1px 1px 2px var(--purple);
   background-color: var(--light-gray);
   cursor: pointer;
+  user-select: none;
 }
 
 .app-button:active {
   background-color: var(--dark-gray);
+}
+
+.app-adjust {
+  width: 30px;
+  height: 30px;
+  padding-bottom: 4px;
+}
+
+.app-adjust p {
+  color: var(--purple);
+  font-size: 2rem;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 200;
 }
 
 @media (max-width: 1280px) {

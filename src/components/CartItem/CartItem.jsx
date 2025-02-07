@@ -16,11 +16,13 @@ export default function CartItem(props) {
       </div>
       <div className="cart-quantity">
         <p className="cart-mobile-header">quantity:&nbsp;</p>
+        <div className="app-button app-adjust" onClick={() => {props.adjustQuantity(props.productId, -1)}}><p>-</p></div>
         <p>{props.quantity}</p>
+        <div className="app-button app-adjust" onClick={() => {props.adjustQuantity(props.productId, 1)}}><p>+</p></div>
         </div>
       <div className="cart-total">
         <p className="cart-mobile-header">total:&nbsp;</p>
-        <p>${props.price} SGD</p>
+        <p>${parseFloat((props.price * props.quantity).toFixed(2))}&nbsp;SGD</p>
         <img className="app-button cart-remove" onClick={() => props.removeFromCart(props.index)} src={close} alt="Close button" tabIndex="0"/>
       </div>
     </div>

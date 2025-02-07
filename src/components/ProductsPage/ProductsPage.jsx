@@ -34,8 +34,10 @@ export default function ProductsPage(props) {
   }
 
   const categories = ["keychains", "pins", "stickers", "prints", "accessories"]
+  let i = 0
   const categoriesCards = categories.map(category => {
-    return <div className="products-category-card" onClick={() => changeCategory(category)}>
+    i += 1
+    return <div className="products-category-card" onClick={() => changeCategory(category)} key={i}>
         <img src="/product-image.png" alt="Product Image"/>
         <h2>{category}</h2>
     </div>

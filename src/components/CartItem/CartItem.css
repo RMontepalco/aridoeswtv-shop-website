@@ -25,14 +25,16 @@
 
 .cart-quantity {
   display: flex;
+  align-items: center;
+  column-gap: 10px;
 }
 
 .cart-total {
   display: flex;
+  align-items: center;
 }
 
 .cart-remove {
-  align-self: center;
   margin-left: auto;
   width: 30px;
   height: 30px;
@@ -53,7 +55,7 @@
   }
 
   .cart-remove {
-    transform: translateY(-50px);
+    transform: translateY(-63px);
   }
 
   .cart-mobile-header {

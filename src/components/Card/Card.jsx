@@ -1,17 +1,57 @@
 import { useEffect, useState } from 'react'
+import Stripe from 'stripe'
 
 import close from '/x.svg'
-import stripe from '/stripe.svg'
+import poweredByStripe from '/stripe.svg'
 
 import './Card.css'
 
 export default function Card(props) {
+  // Initialize Stripe API
+  const stripe = Stripe(import.meta.env.VITE_STRIPE_SECRET_KEY)
+
   // Store state of card overlay display
-  const [styles, setStyles] = useState({display: "none"})
+  const [overlay, setOverlay] = useState({display: "none"})
+
+  // Store state of item quantity to add to cart
+  const [quantity, setQuantity] = useState(1)
+
+  // Store state of card inventory status
+  const [soldOut, setSoldOut] = useState({display: "none"})
+
+  // Enable or disable add to cart button
+  const [disableAdd, setDisableAdd] = useState({display: "flex"})
+
+  // Render inventory status of each product
+  useEffect(() => {
+    checkStock()
+  }, [])
 
   // Toggle card overlay
   function toggleCardOverlay() {
-    setStyles(prevStyles => prevStyles.display === "none" ? {display: "flex"} : {display: "none"})
+    setOverlay(prevOverlay => prevOverlay.display === "none" ? {display: "flex"} : {display: "none"})
+  }
+
+  // Adjust item quantity to add to cart
+  function adjustQuantity(amount) {
+    setQuantity(prevQuantity => {
+      let newQuantity = prevQuantity += amount
+      if (newQuantity <= 0) return 1
+      return newQuantity
+    })
+  }
+
+  // Check if item is in stock
+  async function checkStock() {
+    try {
+      const product = await stripe.products.retrieve(props.productId)
+      if (!product.active) {
+        setSoldOut({display: "flex"})
+        setDisableAdd({display: "none"})
+      }
+    } catch (e) {
+      console.error("Error retrieving price: ", e)
+    }
   }
 
   return (
@@ -20,8 +60,9 @@ export default function Card(props) {
         <img src={props.image} alt="Product Image"/>
         <p>{props.name}</p>
         <p>${props.price} SGD</p>
+        <p style={soldOut}>sold out</p>
       </div>
-      <div className="card-overlay-container" style={styles}>
+      <div className="card-overlay-container" style={overlay}>
         <div className="card-overlay-background" onClick={toggleCardOverlay}></div>
         <div className="card-overlay">
           <img className="app-button card-close" src={close} alt="Close Button" onClick={toggleCardOverlay} tabIndex="0"/>
@@ -34,20 +75,19 @@ export default function Card(props) {
               <h3>${props.price} SGD</h3>
             </div>
             <p>{props.description}</p>
-            <div className="card-add-or-buy">
-              <div className="app-button card-add" onClick={() => props.addToCart(props)}>
-                <p>add to cart</p>
+            <div className="card-add-to-cart">
+              <p style={soldOut}>sold out</p>
+              <div className="cart-quantity">
+        <div className="app-button app-adjust" onClick={() => {adjustQuantity(-1)}}><p>-</p></div>
+        <p>{quantity}</p>
+        <div className="app-button app-adjust" onClick={() => {adjustQuantity(1)}}><p>+</p></div>
               </div>
-              <p>or</p>
-              <div>
-                <div className="card-buy">
-                  <stripe-buy-button
-                    buy-button-id={props.buyId}
-                    publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
-                  >
-                  </stripe-buy-button>
-                </div>
-                <img className="app-stripe" src={stripe} alt="Powered by Stripe"/>
+              <div className="app-button card-add" style={disableAdd} onClick={() => {
+                props.addToCart(props, quantity)
+                setQuantity(1)
+                toggleCardOverlay()
+              }}>
+                <p>add to cart</p>
               </div>
             </div>
           </div>
