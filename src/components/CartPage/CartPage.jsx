@@ -34,9 +34,8 @@ export default function CartPage(props) {
     })
 
     // Initiate POST request to Render server
-    // fetch("http://localhost:3000/create-checkout-session", {
     // TO DO: Feedback when clicking on check out
-    fetch("https://aridoeswtv-shop-website.onrender.com/create-checkout-session", {
+    fetch("https://aridoeswtv.onrender.com/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
