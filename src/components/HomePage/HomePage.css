@@ -47,12 +47,16 @@
   transform: rotate(5deg);
 }
 
-.home-announcement h2 {
+.home-announcement-header {
   padding: 30px 0px 10px 0px;
 }
 
 .home-announcement ul {
-  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .home-hamster-ufo {

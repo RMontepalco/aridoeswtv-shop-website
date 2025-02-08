@@ -206,7 +206,7 @@ export default function App() {
         <img src={drown} alt="Drown it all out"/>
         <img src={stardust} alt="Made of stardust"/>
         <img src={aliens} alt="Do you believe in aliens?"/>
-        <img src={joke} alt="Congratulations!"/>
+        <img src={joke} alt="Congratulations!" style={{cursor: "pointer"}} onClick={() => {alert(`You actually clicked it???\nwell i guess you should get something.....\ncomment "gotcha" in the comment box at check out for a free sticker with your purchase!`)}}/>
         <img src={existing} alt="Thank you for existing"/>
         <img className="app-girl-sit" src={girlSit} alt="Girl sitting"/>
       </div>

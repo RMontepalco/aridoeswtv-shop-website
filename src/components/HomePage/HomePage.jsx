@@ -18,10 +18,10 @@ export default function HomePage(props) {
           <h2>hello!<br/>my name is arielle and i make silly art that my brain comes up with :)</h2>
         </div>
         <div className="home-ellipse home-announcement">
-          <h2><u>upcoming events!</u></h2>
+          <h2 className="home-announcement-header"><u>upcoming events!</u></h2>
           <ul>
-            <li>ongoing giveaway on my insta!</li>
-            <li>lorem ipsum thingy placeholder text yeah boom</li>
+            <li>shop reopening giveaway on my insta!</li>
+            <h2>@aridoeswtv</h2>
           </ul>
           <img className="home-hamster-ufo" src={hamsterUfo} alt="Hamster in a UFO"/>
         </div>
