@@ -12,20 +12,20 @@ import SuccessPage from './components/SuccessPage/SuccessPage'
 import db from './firebase.js'
 import './App.css'
 
-import aliens from '/aliens.gif'
-import butterfly from '/butterfly.png'
-import catBlue from '/cat-blue.gif'
-import catYellow from '/cat-yellow.png'
-import clown from '/clown.png'
-import connection from '/connection.gif'
-import drown from '/drown.gif'
-import existing from '/existing.gif'
-import girlDance from '/girl-dance.png'
-import girlSit from '/girl-sit.png'
-import joke from '/joke.gif'
-import stardust from '/stardust.gif'
-import thankYou from '/thank-you.gif'
-import welcome from '/welcome.gif'
+import aliens from '/gifs/aliens.gif'
+import butterfly from '/images/butterfly.png'
+import catBlue from '/gifs/cat-blue.gif'
+import catYellow from '/images/cat-yellow.png'
+import clown from '/images/clown.png'
+import connection from '/gifs/connection.gif'
+import drown from '/gifs/drown.gif'
+import existing from '/gifs/existing.gif'
+import girlDance from '/images/girl-dance.png'
+import girlSit from '/images/girl-sit.png'
+import joke from '/gifs/joke.gif'
+import stardust from '/gifs/stardust.gif'
+import thankYou from '/gifs/thank-you.gif'
+import welcome from '/gifs/welcome.gif'
 
 export default function App() {
   // Initiate or load cart from localStorage
@@ -57,7 +57,7 @@ export default function App() {
         image: item.image,
         quantity: quantity
       }])
-      alert(`${item.name} added to cart`)
+      // alert(`${item.name} added to cart`)
     } else {
       setCart(prevCart => {
         let newCart = [...prevCart]
@@ -66,7 +66,7 @@ export default function App() {
         newCart[index] = newItem
         return newCart
       })
-      alert(`${item.name} added to cart again`)
+      //alert(`${item.name} added to cart again`)
     }
   }
 
@@ -104,7 +104,15 @@ export default function App() {
       setProducts([])
       let querySnapshot = await getDocs(collection(db, "shop", "products", product));
       let queryMap = querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
-      setProducts(queryMap)
+      queryMap.sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      });
+      if (queryMap.length === 0) {
+      } else {
+        setProducts(queryMap)
+      }
     }
   }
 
@@ -136,15 +144,15 @@ export default function App() {
     })
     .then(res => {
       if (res.ok) {
-        alert("res ok")
+        // alert("res ok")
         return res.json()
       }
-      alert("res not ok")
+      // alert("res not ok")
       return res.json().then(e => Promise.reject(e))
     })
     .then(({ url }) => {
       localStorage.setItem("purchased", JSON.stringify(cart))
-      alert("Redirecting you to Stripe...")
+      // alert("Redirecting you to Stripe...")
       window.location = url
     })
     .catch(e => {

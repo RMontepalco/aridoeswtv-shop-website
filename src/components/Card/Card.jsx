@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import Stripe from 'stripe'
 
-import close from '/x.svg'
-import poweredByStripe from '/stripe.svg'
+import close from '/icons/x.svg'
 
 import './Card.css'
 
@@ -57,9 +56,9 @@ export default function Card(props) {
   return (
     <div>
       <div className="card" onClick={toggleCardOverlay} tabIndex="0">
-        <img src={props.image} alt="Product Image"/>
+        <img src={`products/${props.image}`} alt="Product Image"/>
         <p>{props.name}</p>
-        <p>${props.price} SGD</p>
+        <p>${props.price.toFixed(2)} SGD</p>
         <p style={soldOut}>sold out</p>
       </div>
       <div className="card-overlay-container" style={overlay}>
@@ -67,12 +66,12 @@ export default function Card(props) {
         <div className="card-overlay">
           <img className="app-button card-close" src={close} alt="Close Button" onClick={toggleCardOverlay} tabIndex="0"/>
           <div className="card-overlay-image">
-            <img src={props.image} alt="Product Image"/>
+            <img src={`products/${props.image}`} alt="Product Image"/>
           </div>
           <div className="card-overlay-info">
             <div style={{display: "flex", flexDirection: "column"}}>
               <h2>{props.name}</h2>
-              <h3>${props.price} SGD</h3>
+              <h3>${props.price.toFixed(2)} SGD</h3>
             </div>
             <p>{props.description}</p>
             <div className="card-add-to-cart">

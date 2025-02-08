@@ -18,10 +18,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 /*
   TO DO:
     Set up Stripe Checkout Page with the following credentials:
-      - Email
-      - Phone
-      - Comments
-      - Shipping/Biling Address (Enable all countries)
+      - Email x
+      - Phone x
+      - Comments x
+      - Shipping/Biling Address (Enable all countries) X
       - Shipping Method (SG Ground, consult Arielle for International)
       - Payment Method (Enable all methods)
       - Promo Code
@@ -29,8 +29,48 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 app.post("/create-checkout-session", async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
+      custom_fields: [{
+        key: 'comments',
+        label: {
+          type: 'custom',
+          custom: 'Comments',
+        },
+        type: 'text',
+      },],
       shipping_address_collection: {
-        allowed_countries: ['US', 'SG'],
+        allowed_countries: ["SG"],
+      },
+      shipping_options: [{
+        shipping_rate_data: {
+          type: 'fixed_amount',
+          fixed_amount: {
+            amount: 300,
+            currency: 'sgd',
+          },
+          display_name: 'Tracked Shipping',
+          delivery_estimate: {
+            minimum: {
+              unit: 'business_day',
+              value: 5,
+            },
+            maximum: {
+              unit: 'business_day',
+              value: 7,
+            },
+          },
+        },
+      },],
+
+      /*
+      discounts: [
+        {
+          coupon: '{{COUPON_ID}}',
+        },
+      ],
+      */
+
+      phone_number_collection: {
+        enabled: true,
       },
       payment_method_types: ["card"],
       line_items: req.body.items.map((item) => {

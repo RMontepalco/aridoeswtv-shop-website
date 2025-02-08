@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import CartItem from '../CartItem/CartItem'
 import './CartPage.css'
 
-import stripe from '/stripe.svg'
+import stripe from '/icons/stripe.svg'
 
 export default function CartPage(props) {
   // Display cart total

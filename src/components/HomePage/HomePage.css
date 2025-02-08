@@ -4,7 +4,7 @@
   align-items: center;
   row-gap: 30px;
   min-height: 860px;
-  background: url(/galaxy-background.jpeg);
+  background: url(/images/galaxy-background.jpeg);
 }
 
 .home-headlines {
@@ -78,16 +78,18 @@
 .home-products {
   display: flex;
   column-gap: 30px;
-  animation: carousel 1s linear infinite;
+  animation: carousel 20s linear infinite;
 }
 
 .home-products img {
-  width: 300px;
+  object-fit: cover;
+  height: 300px;
+
 }
 
 @keyframes carousel {
   100% {
-    transform: translateX(-81%);
+    transform: translateX(-228%);
   }
 }
 

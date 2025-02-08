@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import './HomePage.css'
 
-import hamsterUfo from '/hamster-ufo.png'
+import hamsterUfo from '/images/hamster-ufo.png'
 
 export default function HomePage(props) {
   // Render page with products
@@ -29,11 +29,20 @@ export default function HomePage(props) {
       <div className="home-carousel">
         <h2>new products!</h2>
         <div className="home-products">
-          <img src="/product-image.png" alt="Product image"/>
-          <img src="/product-image.png" alt="Product image"/>
-          <img src="/product-image.png" alt="Product image"/>
-          <img src="/product-image.png" alt="Product image"/>
-          <img src="/product-image.png" alt="Product image"/>
+          <img src="/products/cat/IMG_1757.JPG" alt="Product image"/>
+          <img src="/products/cherry/IMG_1767.JPG" alt="Product image"/>
+          <img src="/products/fish/IMG_1784.JPG" alt="Product image"/>
+          <img src="/products/flower/IMG_1754.JPG" alt="Product image"/>
+          <img src="/products/prints/universe.jpg" alt="Product image"/>
+          <img src="/products/skateboard/IMG_1789.JPG" alt="Product image"/>
+          <img src="/products/star/IMG_1762.JPG" alt="Product image"/>
+          <img src="/products/cat/IMG_1757.JPG" alt="Product image"/>
+          <img src="/products/cherry/IMG_1767.JPG" alt="Product image"/>
+          <img src="/products/fish/IMG_1784.JPG" alt="Product image"/>
+          <img src="/products/flower/IMG_1754.JPG" alt="Product image"/>
+          <img src="/products/prints/universe.jpg" alt="Product image"/>
+          <img src="/products/skateboard/IMG_1789.JPG" alt="Product image"/>
+          <img src="/products/star/IMG_1762.JPG" alt="Product image"/>
         </div>
       </div>
     </div>

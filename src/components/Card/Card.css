@@ -6,6 +6,7 @@
   border-radius: 15px;
   padding: 10px 10px 10px 10px;
   width: 250px;
+  height: 342px;
   background-color: black;
   cursor: pointer;
 }
@@ -14,6 +15,7 @@
   border-radius: 10px;
   margin-bottom: 10px;
   width: 100%;
+  aspect-ratio: 1/1.1;
   object-fit: cover;
 }
 
@@ -56,8 +58,8 @@
 .card-overlay-image img {
   border-radius: 10px;
   width: 100%;
+  aspect-ratio: 1/1.1;
   object-fit: cover;
-  aspect-ratio: 1/1;
 }
 
 .card-overlay-info {
@@ -133,6 +135,10 @@
   .card-overlay-info {
     text-align: center;
     width: 100%;
+  }
+
+  .card-add-to-cart {
+    margin-top: unset;
   }
 
   .card-close {

@@ -27,10 +27,10 @@ export default function SuccessPage(props) {
     return <div className="success-item" key={i}>
 
       <div className="success-info">
-        <img className="success-image" src={item.image} alt="Item image"/>
+        <img className="success-image" src={`products/${item.image}`} alt="Item image"/>
         <div className="success-text">
           <p>{item.name}</p>
-          <p>${item.price} SGD</p>
+          <p>${item.price.toFixed(2)} SGD</p>
         </div>
       </div>
 

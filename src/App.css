@@ -9,7 +9,7 @@
 /* Font "Papyrus" from https://befonts.com/papyrus-font.html */
 @font-face {
   font-family: papyrus;
-  src: url(/papyrus.ttf);
+  src: url(/fonts/papyrus.ttf);
   font-optical-sizing: auto;
   font-style: normal;
 }

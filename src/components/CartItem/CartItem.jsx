@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react'
 
 import './CartItem.css'
 
-import close from '/x.svg'
+import close from '/icons/x.svg'
 
 export default function CartItem(props) {
   return (
     <div className="cart-item">
       <div className="cart-info">
-        <img className="cart-image" src={props.image} alt="Item image"/>
+        <img className="cart-image" src={`products/${props.image}`} alt="Item image"/>
         <div className="cart-text">
           <p>{props.name}</p>
-          <p>${props.price} SGD</p>
+          <p>${props.price.toFixed(2)} SGD</p>
         </div>
       </div>
       <div className="cart-quantity">

@@ -1,10 +1,10 @@
 import './ContactPage.css'
 
-import blog from '/blog.png'
-import contactMe from '/contact-me.gif'
-import questions from '/questions.gif'
-import instagram from '/instagram.png'
-import koFi from '/ko-fi.png'
+import blog from '/images/blog.png'
+import contactMe from '/gifs/contact-me.gif'
+import questions from '/gifs/questions.gif'
+import instagram from '/images/instagram.png'
+import koFi from '/images/ko-fi.png'
 
 export default function ContactPage() {
   return (
@@ -27,21 +27,32 @@ export default function ContactPage() {
       <div className="contact-questions">
         <img className="contact-header" src={questions} alt="Frequently asked questions"/>
         <ul>
-          <li>
-            Q: Lorem ipsum odor amet, consectetuer adipiscing elit.<br/>
-            A: Bibendum libero nec inceptos leo ligula semper aenean.
+          <li className="contact-question">
+            Do you ship internationally?
           </li>
-          <li>
-            Q: Bibendum libero nec inceptos leo ligula semper aenean.<br/>
-            A: Rhoncus gravida nullam tempor, conubia fringilla per non.
+          <li className="contact-answer">
+            Yes! Please message me on instagram for international orders! Do take note,
+            shipping for international orders will depend on where you’re from, but don’t
+            hesitate to message me for more info!
           </li>
-          <li>
-            Q: Luctus metus facilisis pellentesque mi metus curabitur ut.<br/>
-            A: Sodales ipsum dui, integer tortor ultrices dolor torquent. 
+          <li className="contact-question">
+            How long do you take to mail orders out?
           </li>
-          <li>
-            Q: Uctus ultricies eu enim nisi arcu massa commodo.<br/>
-            A: Nulla duis ex luctus enim ornare lacus.
+          <li className="contact-answer">
+            I do mail runs on Fridays!
+          </li>
+          <li className="contact-question">
+            Shipping is too pricey, can I do pick up?
+          </li>
+          <li className="contact-answer">
+            Of course! With the recent surge in mailing price, I now offer pick up for orders.
+            Do take note that I only do pickups at Lakeside or Boon Lay MRT on Saturdays!
+          </li>
+          <li className="contact-question">
+            There is something wrong with my order/ I have problems checking out
+          </li>
+          <li className="contact-answer">
+            DM me on instagram and I will help you!
           </li>
         </ul>
       </div>

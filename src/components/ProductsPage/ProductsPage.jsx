@@ -38,7 +38,7 @@ export default function ProductsPage(props) {
   const categoriesCards = categories.map(category => {
     i += 1
     return <div className="products-category-card" onClick={() => changeCategory(category)} key={i}>
-        <img src="/product-image.png" alt="Product Image"/>
+        <img src="/images/product-image.png" alt="Product Image"/>
         <h2>{category}</h2>
     </div>
   })
