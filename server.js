@@ -40,8 +40,10 @@ app.post("/create-checkout-session", async (req, res) => {
         }
       }),
       mode: "payment",
-      success_url: `https://aridoeswtv.web.app/`,
-      cancel_url: `https://aridoeswtv.web.app//cart`,
+      success_url: "https://aridoeswtv.web.app/success",
+      cancel_url: "https://aridoeswtv.web.app/cart",
+      // success_url: "http://localhost:5173/success",
+      // cancel_url: "http://localhost:5173/cart",
     })
     res.json({url: session.url})
   } catch (e) {

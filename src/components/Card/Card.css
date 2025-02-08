@@ -81,6 +81,12 @@
   margin-top: 30px;
 }
 
+.card-quantity {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
 .card-add {
   width: 110px;
   height: 30px;

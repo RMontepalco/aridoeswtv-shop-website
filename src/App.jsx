@@ -8,6 +8,7 @@ import ProductsPage from './components/ProductsPage/ProductsPage'
 import Card from './components/Card/Card'
 import ContactPage from './components/ContactPage/ContactPage'
 import CartPage from './components/CartPage/CartPage'
+import SuccessPage from './components/SuccessPage/SuccessPage'
 import db from './firebase.js'
 import './App.css'
 
@@ -107,6 +108,51 @@ export default function App() {
     }
   }
 
+  // Take customer and cart to Stripe Hosted Checkout Page
+  function checkOut() {
+    // Check if cart is empty
+    if (cart.length === 0) {
+      alert("Cart is empty")
+      return
+    }
+
+    // Map and parse cart for POST request
+    const lineItems = cart.map(item => {
+      return {
+        price: item.priceId,
+        quantity: item.quantity
+      }
+    })
+
+    // Initiate POST request to Render server
+    // TO DO: Feedback when clicking on check out
+    // fetch("http://localhost:3000/create-checkout-session", {
+    fetch("https://aridoeswtv.onrender.com/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({items: lineItems}),
+    })
+    .then(res => {
+      if (res.ok) {
+        alert("res ok")
+        return res.json()
+      }
+      alert("res not ok")
+      return res.json().then(e => Promise.reject(e))
+    })
+    .then(({ url }) => {
+      localStorage.setItem("purchased", JSON.stringify(cart))
+      alert("Redirecting you to Stripe...")
+      window.location = url
+    })
+    .catch(e => {
+      alert(e.error)
+      console.error(e.error)
+    })
+  }
+
   // Map products
   const productsData = products.map(product => {
     return <Card
@@ -139,7 +185,8 @@ export default function App() {
           <Route path="/" element={<HomePage getProducts={getProducts} productsData={productsData} />}/>
           <Route path="/products" element={<ProductsPage cart={cart} addToCart={addToCart} getProducts={getProducts} productsData={productsData} />}/>
           <Route path="/contact" element={<ContactPage />}/>
-          <Route path="/cart" element={<CartPage cart={cart} adjustQuantity={adjustQuantity} removeFromCart={removeFromCart} />}/>
+          <Route path="/cart" element={<CartPage cart={cart} adjustQuantity={adjustQuantity} removeFromCart={removeFromCart} checkOut={checkOut}/>}/>
+          <Route path="/success" element={<SuccessPage setCart={setCart}/>}/>
         </Routes>
         <div className="footer">
           <img src={welcome} alt="Welcome to aridoeswtv's shop!"/>

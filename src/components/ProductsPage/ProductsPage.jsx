@@ -53,16 +53,6 @@ export default function ProductsPage(props) {
         <div className="app-button products-back" onClick={() => changeCategory("")}>back</div>
         <div className="products-data">
           {props.productsData}
-          {props.productsData}
-          {props.productsData}
-          {props.productsData}
-          {props.productsData}
-          {props.productsData}
-          {props.productsData}
-          {props.productsData}
-          {props.productsData}
-          {props.productsData}
-          {props.productsData}
         </div>
       </div>
     </div>

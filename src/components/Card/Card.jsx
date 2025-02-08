@@ -50,7 +50,7 @@ export default function Card(props) {
         setDisableAdd({display: "none"})
       }
     } catch (e) {
-      console.error("Error retrieving price: ", e)
+      console.error("Error retrieving price:", e)
     }
   }
 
@@ -77,10 +77,10 @@ export default function Card(props) {
             <p>{props.description}</p>
             <div className="card-add-to-cart">
               <p style={soldOut}>sold out</p>
-              <div className="cart-quantity">
-        <div className="app-button app-adjust" onClick={() => {adjustQuantity(-1)}}><p>-</p></div>
-        <p>{quantity}</p>
-        <div className="app-button app-adjust" onClick={() => {adjustQuantity(1)}}><p>+</p></div>
+              <div className="card-quantity" style={disableAdd}>
+                <div className="app-button app-adjust" onClick={() => {adjustQuantity(-1)}}><p>-</p></div>
+                <p>{quantity}</p>
+                <div className="app-button app-adjust" onClick={() => {adjustQuantity(1)}}><p>+</p></div>
               </div>
               <div className="app-button card-add" style={disableAdd} onClick={() => {
                 props.addToCart(props, quantity)

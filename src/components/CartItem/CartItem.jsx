@@ -22,7 +22,7 @@ export default function CartItem(props) {
         </div>
       <div className="cart-total">
         <p className="cart-mobile-header">total:&nbsp;</p>
-        <p>${parseFloat((props.price * props.quantity).toFixed(2))}&nbsp;SGD</p>
+        <p>${(props.price * props.quantity).toFixed(2)}&nbsp;SGD</p>
         <img className="app-button cart-remove" onClick={() => props.removeFromCart(props.index)} src={close} alt="Close button" tabIndex="0"/>
       </div>
     </div>
