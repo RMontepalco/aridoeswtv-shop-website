@@ -44,11 +44,11 @@ export default function CartPage(props) {
         <p>total</p>
       </div>
       <div className="cart-items">
-        {cartData}
+        {cartData.length !== 0 ? cartData : <p style={{alignSelf: "center"}}>cart is empty</p>}
       </div>
-      <p>total: ${total} SGD</p>
       <div className="cart-check-out">
-        <div className="app-button cart-check-out-button"onClick={props.checkOut}>Check Out</div>
+        <p style={{marginBottom: "30px"}}>subtotal: ${total} SGD</p>
+        {cartData.length !== 0 && <div className="app-button cart-check-out-button"onClick={props.checkOut}>Check Out</div>}
         <img className="app-stripe" src={stripe} alt="Powered by Stripe"/>
       </div>
     </div>

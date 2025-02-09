@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 30px;
+  row-gap: 50px;
+  padding: 20px;
   min-height: 860px;
   background: url(/images/galaxy-background.jpeg);
 }
@@ -12,7 +13,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px;
   width: 100%;
 }
 
@@ -24,31 +24,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   border: 2px solid var(--light-blue);
   border-radius: 50%;
+  padding: 50px 60px 50px 60px;
   width: 60%;
-  height: 170px;
   position: relative;
   background-color: var(--dark-blue);
 }
 
 .home-intro {
-  text-align: center;
-  padding: 5%;
   right: 20%;
   transform: rotate(355deg);
 }
 
 .home-announcement {
-  text-align: left;
   flex-direction: column;
-  justify-content: right;
   left: 20%;
   transform: rotate(5deg);
-}
-
-.home-announcement-header {
-  padding: 30px 0px 10px 0px;
 }
 
 .home-announcement ul {
@@ -56,27 +49,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding-top: 10px;
 }
 
 .home-hamster-ufo {
   position: absolute;
-  transform: translate(20%,-80%);
+  right: 10px;
+  top: -105px;
   width: 150px;
 }
 
 .home-carousel {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  margin-bottom:30px;
+  row-gap: 20px;
   border: 2px solid var(--light-blue);
-  width: 80%;
-  height: 400px;
+  padding: 20px 0px 20px 0px;
+  width: 90%;
   overflow: hidden;
   background-color: var(--dark-blue);
-}
-
-.home-carousel h2 {
-  margin: 20px 0px 20px 0px;
 }
 
 .home-products {
@@ -86,36 +78,33 @@
 }
 
 .home-products img {
+  aspect-ratio: 1/1;
   object-fit: cover;
-  height: 300px;
+  width: 250px;
 
 }
 
 @keyframes carousel {
   100% {
-    transform: translateX(-228%);
+    transform: translateX(-222.5%);
   }
 }
 
 @media (max-width: 640px) {
-  .home-headlines h2, .home-headlines li {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 1024px) {
   .home-headlines {
-    row-gap: 80px;
+    row-gap: 100px;
   }
 
   .home-ellipse {
-    width: 100%;
-    max-width: 591px;
-    height: 200px;
+    padding: 40px 50px 40px 50px;
+    width: 90%;
   }
 
-  .home-intro, .home-announcement {
-    right: 0%;
-    left: 0%;
+  .home-intro {
+    right: 5%;
+  }
+
+  .home-announcement {
+    left: 5%;
   }
 }

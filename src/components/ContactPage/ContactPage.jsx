@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './ContactPage.css'
 
 import blog from '/images/blog.png'
@@ -9,20 +10,22 @@ import koFi from '/images/ko-fi.png'
 export default function ContactPage() {
   return (
     <div className="contact">
-      <img className="contact-header" src={contactMe} alt="Contact me!"/>
-      <div className="contact-links">
-        <a href="https://www.instagram.com/aridoeswtv">
-          <img src={instagram} alt="Instagram"/>
-          <h2>instagram</h2>
-        </a>
-        <a href="https://ko-fi.com/aridoeswtv">
-          <img src={koFi} alt="Ko-fi"/>
-          <h2>ko-fi</h2>
-        </a>
-        <a href="https://aridoeswtv.blogspot.com">
-          <img src={blog} alt="Blogspot"/>
-          <h2>my blog!</h2>
-        </a>
+      <div className="contact-me">
+        <img className="contact-header" src={contactMe} alt="Contact me!"/>
+        <div className="contact-links">
+          <a href="https://www.instagram.com/aridoeswtv">
+            <img src={instagram} alt="Instagram"/>
+            <h2>instagram</h2>
+          </a>
+          <a href="https://ko-fi.com/aridoeswtv">
+            <img src={koFi} alt="Ko-fi"/>
+            <h2>ko-fi</h2>
+          </a>
+          <a href="https://aridoeswtv.blogspot.com">
+            <img src={blog} alt="Blogspot"/>
+            <h2>my blog!</h2>
+          </a>
+        </div>
       </div>
       <div className="contact-questions">
         <img className="contact-header" src={questions} alt="Frequently asked questions"/>

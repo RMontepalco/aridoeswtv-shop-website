@@ -3,28 +3,29 @@
   flex-direction: column;
   align-items: center;
   row-gap: 30px;
-  padding: 30px 0px 30px 0px;
+  padding: 20px;
   min-height: 860px;
   background: url(/images/galaxy-background.jpeg);
 }
 
 .cart-header {
   display: grid;
-  grid-template-columns: 60% 20% 20%;
+  grid-template-columns: 57% 18% 25%;
   width: 85%;
 }
 
 .cart-items {
   display: flex;
   flex-direction: column;
-  width: 90%;
   row-gap: 20px;
+  width: 90%;
+  min-height: 500px;
+  
 }
 
 .cart-check-out {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 

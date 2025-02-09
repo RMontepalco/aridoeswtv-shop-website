@@ -2,12 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  row-gap: 50px;
+  padding: 20px;
   min-height: 860px;
   background: url(/images/galaxy-background.jpeg);
 }
 
+.contact-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .contact-header {
-  margin: 30px;
+  margin: 20px;
   width: 90%;
   max-width: 400px;
 }
@@ -26,8 +34,8 @@
 .contact-links a {
   display: flex;
   flex-direction: column;
-  aspect-ratio: 1.11/1;
-  max-width: 200px;
+  row-gap: 10px;
+  width: 200px;
 }
 
 .contact-links h2 {
@@ -41,7 +49,6 @@
   align-items: center;
   width: 80%;
   box-sizing: border-box;
-  padding: 30px;
 }
 
 .contact-questions ul {
@@ -51,16 +58,22 @@
 
 .contact-question {
   margin-top: 10px;
+  padding-left: 2em;
+  text-indent: -2em;
 }
 
 .contact-question:before {
-  content: "Q: ";
+  content: "Q:";
+  padding-right: 1em;
 }
 
 .contact-answer {
   margin-bottom: 10px;
+  padding-left: 2em;
+  text-indent: -2em;
 }
 
 .contact-answer:before {
-  content: "A: ";
+  content: "A:";
+  padding-right: 1em;
 }

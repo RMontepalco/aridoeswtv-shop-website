@@ -3,12 +3,9 @@
   flex-direction: column;
   align-items: center;
   row-gap: 30px;
+  padding: 20px;
   min-height: 860px;
   background: url(/images/galaxy-background.jpeg);
-}
-
-.products-header {
-  margin: 30px 30px 0px 30px;
 }
 
 .products-categories {
@@ -16,7 +13,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  margin-bottom: 30px;
 }
 
 .products-category-card {
@@ -40,6 +36,7 @@
   border-radius: 10px;
   width: 100%;
   object-fit: cover;
+  aspect-ratio: 1/1;
 }
 
 .products-categories h2 {
@@ -47,9 +44,6 @@
   font-size: 1rem;
 }
 
-/*
-  TO DO: Make last column align left
-*/
 .products-list {
   display: flex;
   flex-direction: column;
@@ -66,7 +60,7 @@
 
 .products-data {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 

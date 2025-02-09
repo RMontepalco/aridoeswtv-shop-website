@@ -9,6 +9,9 @@ export default function Card(props) {
   // Initialize Stripe API
   const stripe = Stripe(import.meta.env.VITE_STRIPE_SECRET_KEY)
 
+  // Store state of body scroll
+  const [bodyScroll, setBodyScroll] = useState(true)
+
   // Store state of card overlay display
   const [overlay, setOverlay] = useState({display: "none"})
 
@@ -29,6 +32,12 @@ export default function Card(props) {
   // Toggle card overlay
   function toggleCardOverlay() {
     setOverlay(prevOverlay => prevOverlay.display === "none" ? {display: "flex"} : {display: "none"})
+
+    // TO DO: prevent body scroll on mobile
+    setBodyScroll(prevBodyScroll =>{
+      prevBodyScroll ? document.body.classList.add("card-prevent-scroll") : document.body.classList.remove("card-prevent-scroll")
+      return !prevBodyScroll
+    })
   }
 
   // Adjust item quantity to add to cart

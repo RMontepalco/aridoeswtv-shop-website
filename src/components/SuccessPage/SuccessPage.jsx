@@ -15,7 +15,7 @@ export default function SuccessPage(props) {
   useEffect(() => {
     props.setCart([])
     localStorage.setItem("purchased", JSON.stringify(purchased))
-    let newTotal = 0
+    let newTotal = 3
     purchased.map(item => newTotal += item.price * item.quantity)
     setTotal(newTotal.toFixed(2))
   }, [])
@@ -45,10 +45,12 @@ export default function SuccessPage(props) {
     <div className="success">
       <h2>Yay!</h2>
       <p>Thank you for your support!</p>
+      <p>An email recipt will be sent you shortly.</p>
       <p>You purchased the following items:</p>
       <div className="success-items">
         {purchasedData}
       </div>
+      <p>shipping: $3.00 SGD</p>
       <p>total: ${total} SGD</p>
       <Link className="app-button" to="/" style={{width: "115px", height: "30px"}}>return home< /Link>
     </div>

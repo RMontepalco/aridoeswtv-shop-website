@@ -190,7 +190,7 @@ export default function App() {
       <div className="app-content">
         <Navbar cart={cart} count={count} />
         <Routes>
-          <Route path="/" element={<HomePage getProducts={getProducts} productsData={productsData} />}/>
+          <Route path="/" element={<HomePage />}/>
           <Route path="/products" element={<ProductsPage cart={cart} addToCart={addToCart} getProducts={getProducts} productsData={productsData} />}/>
           <Route path="/contact" element={<ContactPage />}/>
           <Route path="/cart" element={<CartPage cart={cart} adjustQuantity={adjustQuantity} removeFromCart={removeFromCart} checkOut={checkOut}/>}/>

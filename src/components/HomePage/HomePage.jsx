@@ -5,10 +5,8 @@ import './HomePage.css'
 import hamsterUfo from '/images/hamster-ufo.png'
 
 export default function HomePage(props) {
-  // Render page with products
   useEffect(() => {
-    props.getProducts("new")
-    console.log("products rendered")
+    window.scrollTo(0, 0);
   }, [])
 
   return (
@@ -18,12 +16,12 @@ export default function HomePage(props) {
           <h2>hello!<br/>my name is arielle and i make silly art that my brain comes up with :)</h2>
         </div>
         <div className="home-ellipse home-announcement">
-          <h2 className="home-announcement-header"><u>upcoming events!</u></h2>
+          <img className="home-hamster-ufo" src={hamsterUfo} alt="Hamster in a UFO"/>
+          <h2><u>upcoming events!</u></h2>
           <ul>
             <li>shop reopening giveaway on my insta!</li>
-            <h2>@aridoeswtv</h2>
+            <li><h2>@aridoeswtv</h2></li>
           </ul>
-          <img className="home-hamster-ufo" src={hamsterUfo} alt="Hamster in a UFO"/>
         </div>
       </div>
       <div className="home-carousel">
