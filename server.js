@@ -18,13 +18,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 /*
   TO DO:
     Set up Stripe Checkout Page with the following credentials:
-      - Email x
-      - Phone x
-      - Comments x
-      - Shipping/Biling Address (Enable all countries) X
-      - Shipping Method (SG Ground, consult Arielle for International)
-      - Payment Method (Enable all methods)
       - Promo Code
+    Show customer recipt after successful purchase
 */
 app.post("/create-checkout-session", async (req, res) => {
   try {
@@ -36,10 +31,46 @@ app.post("/create-checkout-session", async (req, res) => {
           custom: 'Comments',
         },
         type: 'text',
+        optional: true,
       },],
       shipping_address_collection: {
         allowed_countries: ["SG"],
       },
+      phone_number_collection: {
+        enabled: true,
+      },
+      payment_method_types: ["card"],
+      mode: "payment",
+
+      // LIVE
+      shipping_options: [
+        {
+          shipping_rate: "shr_1Qrq3xGRlh09FAWd0h5FOFYy"
+        },
+        {
+          shipping_rate: "shr_1Qrq68GRlh09FAWdyLDU9nJR"
+        },
+      ],
+      line_items: req.body.items.map((item) => {
+        return {
+          price: item.price,
+          quantity: item.quantity,
+        }
+      }),
+      success_url: "https://aridoeswtv.web.app/success",
+      cancel_url: "https://aridoeswtv.web.app/cart",
+
+      /*
+      // TO DO: Promo Code
+      discounts: [
+        {
+          coupon: '{{COUPON_ID}}',
+        },
+      ],
+      */
+
+      /*
+      // TEST
       shipping_options: [{
         shipping_rate_data: {
           type: 'fixed_amount',
@@ -60,30 +91,16 @@ app.post("/create-checkout-session", async (req, res) => {
           },
         },
       },],
-
-      /*
-      discounts: [
+      line_items: [
         {
-          coupon: '{{COUPON_ID}}',
+          price: "price_1Qq3jpDFXrpPauNh7sEq31Li",
+          quantity: 1,
         },
       ],
+      success_url: "http://localhost:5173/success",
+      cancel_url: "http://localhost:5173/cart",
       */
-
-      phone_number_collection: {
-        enabled: true,
-      },
-      payment_method_types: ["card"],
-      line_items: req.body.items.map((item) => {
-        return {
-          price: item.price,
-          quantity: item.quantity,
-        }
-      }),
-      mode: "payment",
-      success_url: "https://aridoeswtv.web.app/success",
-      cancel_url: "https://aridoeswtv.web.app/cart",
-      // success_url: "http://localhost:5173/success",
-      // cancel_url: "http://localhost:5173/cart",
+      
     })
     res.json({url: session.url})
   } catch (e) {
