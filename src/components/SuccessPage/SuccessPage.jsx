@@ -4,6 +4,37 @@ import { Link } from 'react-router-dom'
 import './SuccessPage.css'
 
 export default function SuccessPage(props) {
+  /*
+  useEffect(() =>{
+    fetch("http://localhost:3000/success", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(res => {
+      console.log(res)
+      if (res.ok) {
+        alert("res ok")
+        return res.json()
+      }
+      alert("res not ok")
+      return res.json().then(e => Promise.reject(e))
+    })
+    .then(({ url }) => {
+      alert(url)
+      // localStorage.setItem("receipt", JSON.stringify(url))
+    })
+    .catch(e => {
+      console.error(e.error)
+    })
+  }, [])
+  */
+
+  /*
+  // Retrieve receipt URL after successful purchase
+  const [receipt, setReceipt] = useState("")
+  */
 
   // Retrieve list of purchased items from localStorage
   const [purchased, setPurchased] = useState(JSON.parse(localStorage.getItem("purchased") || "[]"))
@@ -46,6 +77,7 @@ export default function SuccessPage(props) {
       <h2>Yay!</h2>
       <p>Thank you for your support!</p>
       <p>An email recipt will be sent you shortly.</p>
+      {/* <p>You can view your receipt <a href={JSON.parse(localStorage.getItem("receipt") || "[]")}>here</a>.</p> */}
       <p>You purchased the following items:</p>
       <div className="success-items">
         {purchasedData}

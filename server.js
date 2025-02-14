@@ -16,10 +16,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 // Create a POST request for Stripe Checkout via /create-checkout-session
 /*
-  TO DO:
-    Set up Stripe Checkout Page with the following credentials:
-      - Promo Code
-    Show customer recipt after successful purchase
+  TO DO: Show customer recipt after successful purchase
 */
 app.post("/create-checkout-session", async (req, res) => {
   try {
@@ -41,6 +38,7 @@ app.post("/create-checkout-session", async (req, res) => {
       },
       payment_method_types: ["card"],
       mode: "payment",
+      allow_promotion_codes: true,
 
       // LIVE
       shipping_options: [
@@ -59,15 +57,6 @@ app.post("/create-checkout-session", async (req, res) => {
       }),
       success_url: "https://aridoeswtv.web.app/success",
       cancel_url: "https://aridoeswtv.web.app/cart",
-
-      /*
-      // TO DO: Promo Code
-      discounts: [
-        {
-          coupon: '{{COUPON_ID}}',
-        },
-      ],
-      */
 
       /*
       // TEST
@@ -97,7 +86,7 @@ app.post("/create-checkout-session", async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: "http://localhost:5173/success",
+      success_url: "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "http://localhost:5173/cart",
       */
       
@@ -107,6 +96,20 @@ app.post("/create-checkout-session", async (req, res) => {
     res.status(500).json({error: e.message})
   }
 })
+
+/*
+// Redirect customer to success page and display order information
+app.get('/success', async (req, res) => {
+  try {
+    const session = await stripe.checkout.sessions.retrieve(req.query.session_id)
+    const paymentIntent = await stripe.paymentIntents.retrieve(session.payment_intent)
+    const charge = await stripe.charges.retrieve(paymentIntent.latest_charge);
+    res.json({url: charge.receipt_url})
+  } catch (e) {
+    res.status(500).json({error: e.message})
+  }
+});
+*/
 
 // Display specified port on server
 app.get("/", (req, res) => {
