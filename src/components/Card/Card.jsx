@@ -24,6 +24,9 @@ export default function Card(props) {
   // Enable or disable add to cart button
   const [disableAdd, setDisableAdd] = useState({display: "flex"})
 
+  // Parse newlines in description
+  const description = props.description.split("/n").map(s => <p>{s}</p>)
+
   // Render inventory status of each product
   useEffect(() => {
     checkStock()
@@ -82,7 +85,7 @@ export default function Card(props) {
               <h2>{props.name}</h2>
               <h3>${props.price.toFixed(2)} SGD</h3>
             </div>
-            <p>{props.description}</p>
+            {description}
             <div className="card-add-to-cart">
               <p style={soldOut}>sold out</p>
               <div className="card-quantity" style={disableAdd}>
