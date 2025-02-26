@@ -10,7 +10,7 @@ export default function Card(props) {
   const stripe = Stripe(import.meta.env.VITE_STRIPE_SECRET_KEY)
 
   // Store state of body scroll
-  const [bodyScroll, setBodyScroll] = useState(true)
+  const [bodyScroll, setBodyScroll] = useState("hidden")
 
   // Store state of card overlay display
   const [overlay, setOverlay] = useState({display: "none"})
@@ -25,7 +25,7 @@ export default function Card(props) {
   const [disableAdd, setDisableAdd] = useState({display: "flex"})
 
   // Parse newlines in description
-  const description = props.description.split("/n").map(s => <p>{s}</p>)
+  const description = props.description.split("/n").map(s => <p style={{fontSize: "0.85rem"}}>{s}</p>)
 
   // Render inventory status of each product
   useEffect(() => {
@@ -35,12 +35,10 @@ export default function Card(props) {
   // Toggle card overlay
   function toggleCardOverlay() {
     setOverlay(prevOverlay => prevOverlay.display === "none" ? {display: "flex"} : {display: "none"})
-
-    // TO DO: prevent body scroll on mobile
-    setBodyScroll(prevBodyScroll =>{
-      prevBodyScroll ? document.body.classList.add("card-prevent-scroll") : document.body.classList.remove("card-prevent-scroll")
-      return !prevBodyScroll
+    setBodyScroll(prevBodyScroll => {
+      return prevBodyScroll === "visible" ? "hidden" : "visible"
     })
+    document.body.style.overflow = bodyScroll;
   }
 
   // Adjust item quantity to add to cart
@@ -85,7 +83,9 @@ export default function Card(props) {
               <h2>{props.name}</h2>
               <h3>${props.price.toFixed(2)} SGD</h3>
             </div>
-            {description}
+            <div className="card-overlay-description">
+              {description}
+            </div>
             <div className="card-add-to-cart">
               <p style={soldOut}>sold out</p>
               <div className="card-quantity" style={disableAdd}>
