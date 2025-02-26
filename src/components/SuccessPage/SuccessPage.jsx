@@ -4,37 +4,8 @@ import { Link } from 'react-router-dom'
 import './SuccessPage.css'
 
 export default function SuccessPage(props) {
-  /*
-  useEffect(() =>{
-    fetch("http://localhost:3000/success", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    .then(res => {
-      console.log(res)
-      if (res.ok) {
-        alert("res ok")
-        return res.json()
-      }
-      alert("res not ok")
-      return res.json().then(e => Promise.reject(e))
-    })
-    .then(({ url }) => {
-      alert(url)
-      // localStorage.setItem("receipt", JSON.stringify(url))
-    })
-    .catch(e => {
-      console.error(e.error)
-    })
-  }, [])
-  */
-
-  /*
-  // Retrieve receipt URL after successful purchase
+  // Store customer's receipt url
   const [receipt, setReceipt] = useState("")
-  */
 
   // Retrieve list of purchased items from localStorage
   const [purchased, setPurchased] = useState(JSON.parse(localStorage.getItem("purchased") || "[]"))
@@ -44,6 +15,22 @@ export default function SuccessPage(props) {
 
   // Empty cart and calculate total of purchased items
   useEffect(() => {
+    const query = new URLSearchParams(window.location.search)
+    const session_id = query.get("session_id")
+    
+    // TEST
+    //fetch(`http://localhost:3000/success?session_id=${session_id}`, {
+
+    // LIVE
+    fetch(`https://aridoeswtv.onrender.com/success?session_id=${session_id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(res => res.json())
+    .then(({ url }) => setReceipt(url))
+    .catch(e => console.error(e.error))
     props.setCart([])
     localStorage.setItem("purchased", JSON.stringify(purchased))
     let newTotal = 0
@@ -77,7 +64,8 @@ export default function SuccessPage(props) {
       <h2>Yay!</h2>
       <p>Thank you for your support!</p>
       <p>An email recipt will be sent you shortly.</p>
-      {/* <p>You can view your receipt <a href={JSON.parse(localStorage.getItem("receipt") || "[]")}>here</a>.</p> */}
+      <p>You can view your receipt at the link below:</p>
+      <a href={receipt}>{receipt}</a>
       <p>You purchased the following items:</p>
       <div className="success-items">
         {purchasedData}

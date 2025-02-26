@@ -134,7 +134,11 @@ export default function App() {
 
     // Initiate POST request to Render server
     // TO DO: Feedback when clicking on check out
-    // fetch("http://localhost:3000/create-checkout-session", {
+
+    // TEST
+    //fetch("http://localhost:3000/create-checkout-session", {
+
+    // LIVE
     fetch("https://aridoeswtv.onrender.com/create-checkout-session", {
       method: "POST",
       headers: {

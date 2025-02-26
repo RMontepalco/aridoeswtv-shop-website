@@ -15,9 +15,6 @@ const port = process.env.PORT || 3000
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 // Create a POST request for Stripe Checkout via /create-checkout-session
-/*
-  TO DO: Show customer recipt after successful purchase
-*/
 app.post("/create-checkout-session", async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
@@ -55,7 +52,7 @@ app.post("/create-checkout-session", async (req, res) => {
           quantity: item.quantity,
         }
       }),
-      success_url: "https://aridoeswtv.web.app/success",
+      success_url: "https://aridoeswtv.web.app/success?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "https://aridoeswtv.web.app/cart",
 
       /*
@@ -86,7 +83,7 @@ app.post("/create-checkout-session", async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
+      success_url: "http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "http://localhost:5173/cart",
       */
       
@@ -97,7 +94,6 @@ app.post("/create-checkout-session", async (req, res) => {
   }
 })
 
-/*
 // Redirect customer to success page and display order information
 app.get('/success', async (req, res) => {
   try {
@@ -109,7 +105,6 @@ app.get('/success', async (req, res) => {
     res.status(500).json({error: e.message})
   }
 });
-*/
 
 // Display specified port on server
 app.get("/", (req, res) => {
