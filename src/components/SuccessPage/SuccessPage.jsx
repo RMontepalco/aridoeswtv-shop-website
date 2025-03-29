@@ -64,8 +64,8 @@ export default function SuccessPage(props) {
       <h2>Yay!</h2>
       <p>Thank you for your support!</p>
       <p>An email recipt will be sent you shortly.</p>
-      <p>You can view your receipt at the link below:</p>
-      <a href={receipt}>{receipt}</a>
+      <p>You can view your receipt below:</p>
+      <a className="app-button" style={{width: "115px", height: "30px"}} href={receipt}>open receipt</a>
       <p>You purchased the following items:</p>
       <div className="success-items">
         {purchasedData}

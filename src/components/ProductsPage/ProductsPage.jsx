@@ -35,14 +35,13 @@ export default function ProductsPage(props) {
   
   // Category names and images
   const categories = ["keychains", "pins", "prints", "accessories", "stickers"]
-  const images = ["cherry/IMG_1767.JPG", "star/IMG_1764.JPG", "/prints/universe.jpg", "/flower/IMG_1754.JPG", "coming-soon.jpg"]
+  const images = ["cherry/IMG_1767.JPG", "star/IMG_1764.JPG", "/prints/universe.jpg", "/flower/IMG_1754.JPG", "stickers/nostalgia.jpg"]
   let i = -1
 
   // Render catgegory names and images
-  // TO DO: Reactivate stickers when stickers are released in the shop
   const categoriesCards = categories.map(category => {
     i += 1
-    return <div className="products-category-card" onClick={() => category !== "stickers" ? changeCategory(category) : console.log("stickers coming soon")} key={i}>
+    return <div className="products-category-card" onClick={() => changeCategory(category)} key={i}>
         <img src={`/products/${images[i]}`} alt="Product Image"/>
         <h2>{category}</h2>
     </div>

@@ -19,8 +19,7 @@ export default function HomePage(props) {
           <img className="home-hamster-ufo" src={hamsterUfo} alt="Hamster in a UFO"/>
           <h2><u>upcoming events!</u></h2>
           <ul>
-            <li>shop reopening giveaway on my insta!</li>
-            <li><h2>@aridoeswtv</h2></li>
+            <li><h2>shop reopening giveaway on my insta! @aridoeswtv</h2></li>
           </ul>
         </div>
       </div>
