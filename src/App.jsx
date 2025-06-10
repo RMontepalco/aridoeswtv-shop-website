@@ -9,6 +9,7 @@ import Card from './components/Card/Card'
 import ContactPage from './components/ContactPage/ContactPage'
 import CartPage from './components/CartPage/CartPage'
 import SuccessPage from './components/SuccessPage/SuccessPage'
+import MaintenancePage from './components/MaintenancePage/MaintenancePage'
 import db from './firebase.js'
 import './App.css'
 
@@ -180,6 +181,7 @@ export default function App() {
     />
   })
 
+  /*
   return (
     <div className="app">
       <div className="app-sidebar">
@@ -215,5 +217,11 @@ export default function App() {
         <img className="app-girl-sit" src={girlSit} alt="Girl sitting"/>
       </div>
     </div>
+  )
+  */
+
+  // Close shop for maintenance
+  return (
+    <MaintenancePage />
   )
 }
